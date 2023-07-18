@@ -1,0 +1,25 @@
+Test run by openeuler on Wed May 24 18:53:14 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== g++ tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./g++.dg/dg.exp ...
+FAIL: c-c++-common/spec-barrier-1.c  -std=gnu++98 (test for excess errors)
+PASS: c-c++-common/spec-barrier-1.c  -std=gnu++98 execution test
+FAIL: c-c++-common/spec-barrier-1.c  -std=gnu++14 (test for excess errors)
+PASS: c-c++-common/spec-barrier-1.c  -std=gnu++14 execution test
+FAIL: c-c++-common/spec-barrier-1.c  -std=gnu++17 (test for excess errors)
+PASS: c-c++-common/spec-barrier-1.c  -std=gnu++17 execution test
+FAIL: c-c++-common/spec-barrier-1.c  -std=gnu++2a (test for excess errors)
+PASS: c-c++-common/spec-barrier-1.c  -std=gnu++2a execution test
+
+		=== g++ Summary ===
+
+# of expected passes		4
+# of unexpected failures	4
+/usr/bin/c++  version 10.3.1 (GCC) 
+

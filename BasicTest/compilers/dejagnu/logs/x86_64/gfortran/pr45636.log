@@ -1,0 +1,199 @@
+Opening log files in /home/mx/log/gfortran
+Test run by mx on Wed May 24 17:28:52 2023
+Native configuration is x86_64-pc-linux-gnu
+
+		=== gfortran tests ===
+
+setting trap for SIGINT to interrupted by user
+setting trap for SIGQUIT to interrupted by user
+setting trap for SIGTERM to terminated
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for build, name is localhost
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for host, name is localhost
+Schedule of variations:
+    unix
+
+target is unix
+Running target unix
+dirlist is /usr/share/dejagnu/baseboards/localhost /usr/share/dejagnu/baseboards
+Using /usr/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /usr/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/default.exp as tool-and-target-specific interface file.
+Loading /usr/share/dejagnu/standard.exp
+pushing config for target, name is unix
+Running ./gfortran.dg/dg.exp ...
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: gfortran  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-file-name=libgcc_s.so
+pid is 21381 -21381
+/usr/lib/gcc/x86_64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/x86_64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: gfortran  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-directory
+pid is 21385 -21385
+.
+pid is -1
+output is .
+ status 0
+Executing on host: gfortran  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-lib
+pid is 21388 -21388
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+ALWAYS_GFORTRANFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } ldflags=
+Loading ./lib/gfortran-dg.exp
+Loading ./lib/gcc-dg.exp
+Loading /usr/share/dejagnu/dg.exp
+Loading ./lib/file-format.exp
+Loading ./lib/target-supports-dg.exp
+Loading ./lib/scanasm.exp
+Loading ./lib/scanrtl.exp
+Loading ./lib/scandump.exp
+Loading ./lib/scantree.exp
+Loading ./lib/scanltranstree.exp
+Loading ./lib/scanipa.exp
+Loading ./lib/scanwpaipa.exp
+Loading ./lib/scanlang.exp
+Loading ./lib/timeout-dg.exp
+Loading ./lib/torture-options.exp
+Loading ./lib/fortran-modules.exp
+check_compile tool: gfortran for lto
+doing compile
+Executing on host: gfortran    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -c -o lto21329.o lto21329.c    (timeout = 300)
+spawn -ignore SIGHUP gfortran -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -c -o lto21329.o lto21329.c
+pid is 21391 -21391
+pid is -1
+output is  status 0
+check_compile tool: gfortran for linker_plugin
+doing compile
+Executing on host: gfortran linker_plugin21329.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -fuse-linker-plugin   -lm  -o linker_plugin21329.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran linker_plugin21329.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -fuse-linker-plugin -lm -o linker_plugin21329.exe
+pid is 21396 -21396
+pid is -1
+output is  status 0
+check_compile tool: gfortran for offload_gcn
+doing compile
+Executing on host: gfortran offload_gcn21329.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -foffload=amdgcn-amdhsa -S -o offload_gcn21329.s    (timeout = 300)
+spawn -ignore SIGHUP gfortran offload_gcn21329.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -foffload=amdgcn-amdhsa -S -o offload_gcn21329.s
+pid is 21409 -21409
+gfortran: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+pid is -1
+close result is 21409 exp6 0 1
+output is gfortran: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+ status 1
+compiler exited with status 1
+torture_without_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -g } { -Os }"
+torture_with_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions } { -O3 -g } { -Os }"
+Testing gfortran.dg/pr45636.f90,   -O 
+doing compile
+Executing on host: gfortran ./gfortran.dg/pr45636.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O  -O2 -fdump-tree-forwprop2 -S -o pr45636.s    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/pr45636.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O -O2 -fdump-tree-forwprop2 -S -o pr45636.s
+pid is 21412 -21412
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+check_compile tool: gfortran for exceptions_enabled
+doing compile
+Executing on host: gfortran exceptions_enabled21329.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -S -o exceptions_enabled21329.s    (timeout = 300)
+spawn -ignore SIGHUP gfortran exceptions_enabled21329.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -S -o exceptions_enabled21329.s
+pid is 21416 -21416
+exceptions_enabled21329.c: In function 'foo':
+exceptions_enabled21329.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled21329.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled21329.c:4:12: error: expected ';' before numeric constant
+pid is -1
+close result is 21416 exp6 0 1
+output is exceptions_enabled21329.c: In function 'foo':
+exceptions_enabled21329.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled21329.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled21329.c:4:12: error: expected ';' before numeric constant
+ status 1
+compiler exited with status 1
+PASS: gfortran.dg/pr45636.f90   -O  (test for excess errors)
+PASS: gfortran.dg/pr45636.f90   -O   scan-tree-dump-times forwprop2 "memset" 0
+torture_without_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -g } { -Os }"
+torture_with_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions } { -O3 -g } { -Os }"
+testcase ./gfortran.dg/dg.exp completed in 1 seconds
+
+		=== gfortran Summary ===
+
+# of expected passes		2
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: gfortran  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-file-name=libgcc_s.so
+pid is 21424 -21424
+/usr/lib/gcc/x86_64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/x86_64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: gfortran  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-directory
+pid is 21427 -21427
+.
+pid is -1
+output is .
+ status 0
+Executing on host: gfortran  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-lib
+pid is 21430 -21430
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/x86_64-linux-gnu/10.3.1
+ALWAYS_GFORTRANFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } ldflags=
+Executing on host: gfortran -v    (timeout = 300)
+spawn -ignore SIGHUP gfortran -v
+pid is 21433 -21433
+Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/10.3.1/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=x86_64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-tune=generic --with-arch_32=x86-64 --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+pid is -1
+output is Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/10.3.1/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=x86_64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-tune=generic --with-arch_32=x86-64 --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+ status 0
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+
+runtest completed at Wed May 24 17:28:53 2023

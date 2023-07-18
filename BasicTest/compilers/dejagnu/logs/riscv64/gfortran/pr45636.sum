@@ -1,0 +1,19 @@
+Test run by openeuler on Wed May 24 17:31:26 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== gfortran tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./gfortran.dg/dg.exp ...
+PASS: gfortran.dg/pr45636.f90   -O  (test for excess errors)
+FAIL: gfortran.dg/pr45636.f90   -O   scan-tree-dump-times forwprop2 "memset" 0
+
+		=== gfortran Summary ===
+
+# of expected passes		1
+# of unexpected failures	1
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+

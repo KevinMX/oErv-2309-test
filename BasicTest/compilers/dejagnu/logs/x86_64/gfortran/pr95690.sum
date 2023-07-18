@@ -1,0 +1,18 @@
+Test run by mx on Wed May 24 17:28:53 2023
+Native configuration is x86_64-pc-linux-gnu
+
+		=== gfortran tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./gfortran.dg/dg.exp ...
+PASS: gfortran.dg/pr95690.f90   -O   (test for errors, line 5)
+PASS: gfortran.dg/pr95690.f90   -O  (test for excess errors)
+
+		=== gfortran Summary ===
+
+# of expected passes		2
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+

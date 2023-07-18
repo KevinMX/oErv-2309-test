@@ -1,0 +1,223 @@
+Opening log files in /home/openeuler/log/g++
+Test run by openeuler on Wed May 24 18:52:15 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== g++ tests ===
+
+setting trap for SIGINT to interrupted by user
+setting trap for SIGQUIT to interrupted by user
+setting trap for SIGTERM to terminated
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for build, name is openeuler-riscv64
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for host, name is openeuler-riscv64
+Schedule of variations:
+    unix
+
+target is unix
+Running target unix
+dirlist is /usr/share/dejagnu/baseboards/openeuler-riscv64 /usr/share/dejagnu/baseboards
+Using /usr/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /usr/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/default.exp as tool-and-target-specific interface file.
+Loading /usr/share/dejagnu/standard.exp
+pushing config for target, name is unix
+Running ./g++.dg/dg.exp ...
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: c++  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-file-name=libgcc_s.so
+pid is 18804 -18804
+/usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: c++  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-multi-directory
+pid is 18808 -18808
+.
+pid is -1
+output is .
+ status 0
+Executing on host: c++  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-multi-lib
+pid is 18811 -18811
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+ALWAYS_CXXFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } additional_flags= ldflags= additional_flags=-fmessage-length=0
+Loading ./lib/g++-dg.exp
+Loading ./lib/gcc-dg.exp
+Loading /usr/share/dejagnu/dg.exp
+Loading ./lib/file-format.exp
+Loading ./lib/target-supports-dg.exp
+Loading ./lib/scanasm.exp
+Loading ./lib/scanrtl.exp
+Loading ./lib/scandump.exp
+Loading ./lib/scantree.exp
+Loading ./lib/scanltranstree.exp
+Loading ./lib/scanipa.exp
+Loading ./lib/scanwpaipa.exp
+Loading ./lib/scanlang.exp
+Loading ./lib/timeout-dg.exp
+Loading ./lib/torture-options.exp
+Loading ./lib/fortran-modules.exp
+check_compile tool: g++ for lto
+doing compile
+Executing on host: c++    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0 -flto  -c -o lto18752.o lto18752.c    (timeout = 300)
+spawn -ignore SIGHUP c++ -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -flto -c -o lto18752.o lto18752.c
+pid is 18814 -18814
+pid is -1
+output is  status 0
+check_compile tool: g++ for linker_plugin
+doing compile
+Executing on host: c++ linker_plugin18752.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0 -flto -fuse-linker-plugin    -lm  -o linker_plugin18752.exe    (timeout = 300)
+spawn -ignore SIGHUP c++ linker_plugin18752.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -flto -fuse-linker-plugin -lm -o linker_plugin18752.exe
+pid is 18819 -18819
+pid is -1
+output is  status 0
+check_compile tool: g++ for offload_gcn
+doing compile
+Executing on host: c++ offload_gcn18752.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0 -foffload=amdgcn-amdhsa  -S -o offload_gcn18752.s    (timeout = 300)
+spawn -ignore SIGHUP c++ offload_gcn18752.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -foffload=amdgcn-amdhsa -S -o offload_gcn18752.s
+pid is 18832 -18832
+c++: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+pid is -1
+close result is 18832 exp6 0 1
+output is c++: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+ status 1
+compiler exited with status 1
+Testing opt/pr99305.C,  -std=gnu++98
+doing compile
+Executing on host: c++ ./g++.dg/opt/pr99305.C    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0  -std=gnu++98 -O3 -fno-ipa-icf -fdump-tree-optimized  -S -o pr99305.s    (timeout = 300)
+spawn -ignore SIGHUP c++ ./g++.dg/opt/pr99305.C -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -std=gnu++98 -O3 -fno-ipa-icf -fdump-tree-optimized -S -o pr99305.s
+pid is 18835 -18835
+pid is -1
+output is  status 0
+check_compile tool: g++ for exceptions_enabled
+doing compile
+Executing on host: c++ exceptions_enabled18752.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0  -S -o exceptions_enabled18752.s    (timeout = 300)
+spawn -ignore SIGHUP c++ exceptions_enabled18752.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -S -o exceptions_enabled18752.s
+pid is 18839 -18839
+pid is -1
+output is  status 0
+PASS: g++.dg/opt/pr99305.C  -std=gnu++98 (test for excess errors)
+g++.dg/opt/pr99305.C  -std=gnu++98 : pattern found 0 times
+FAIL: g++.dg/opt/pr99305.C  -std=gnu++98  scan-tree-dump-times optimized " = \\(unsigned char\\) c_[0-9]*\\(D\\);" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++98  scan-tree-dump-times optimized " = [^\n\r]* \\+ [0-9]*;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++98  scan-tree-dump-times optimized " = [^\n\r]* <= 9;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++98  scan-tree-dump-not optimized "if \\(c_[0-9]*\\(D\\) [!=]= 0\\)"
+PASS: g++.dg/opt/pr99305.C  -std=gnu++98  scan-tree-dump-not optimized " = PHI <"
+Testing opt/pr99305.C,  -std=gnu++14
+doing compile
+Executing on host: c++ ./g++.dg/opt/pr99305.C    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0  -std=gnu++14 -O3 -fno-ipa-icf -fdump-tree-optimized  -S -o pr99305.s    (timeout = 300)
+spawn -ignore SIGHUP c++ ./g++.dg/opt/pr99305.C -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -std=gnu++14 -O3 -fno-ipa-icf -fdump-tree-optimized -S -o pr99305.s
+pid is 18843 -18843
+pid is -1
+output is  status 0
+PASS: g++.dg/opt/pr99305.C  -std=gnu++14 (test for excess errors)
+g++.dg/opt/pr99305.C  -std=gnu++14 : pattern found 0 times
+FAIL: g++.dg/opt/pr99305.C  -std=gnu++14  scan-tree-dump-times optimized " = \\(unsigned char\\) c_[0-9]*\\(D\\);" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++14  scan-tree-dump-times optimized " = [^\n\r]* \\+ [0-9]*;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++14  scan-tree-dump-times optimized " = [^\n\r]* <= 9;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++14  scan-tree-dump-not optimized "if \\(c_[0-9]*\\(D\\) [!=]= 0\\)"
+PASS: g++.dg/opt/pr99305.C  -std=gnu++14  scan-tree-dump-not optimized " = PHI <"
+Testing opt/pr99305.C,  -std=gnu++17
+doing compile
+Executing on host: c++ ./g++.dg/opt/pr99305.C    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0  -std=gnu++17 -O3 -fno-ipa-icf -fdump-tree-optimized  -S -o pr99305.s    (timeout = 300)
+spawn -ignore SIGHUP c++ ./g++.dg/opt/pr99305.C -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -std=gnu++17 -O3 -fno-ipa-icf -fdump-tree-optimized -S -o pr99305.s
+pid is 18847 -18847
+pid is -1
+output is  status 0
+PASS: g++.dg/opt/pr99305.C  -std=gnu++17 (test for excess errors)
+g++.dg/opt/pr99305.C  -std=gnu++17 : pattern found 0 times
+FAIL: g++.dg/opt/pr99305.C  -std=gnu++17  scan-tree-dump-times optimized " = \\(unsigned char\\) c_[0-9]*\\(D\\);" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++17  scan-tree-dump-times optimized " = [^\n\r]* \\+ [0-9]*;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++17  scan-tree-dump-times optimized " = [^\n\r]* <= 9;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++17  scan-tree-dump-not optimized "if \\(c_[0-9]*\\(D\\) [!=]= 0\\)"
+PASS: g++.dg/opt/pr99305.C  -std=gnu++17  scan-tree-dump-not optimized " = PHI <"
+Testing opt/pr99305.C,  -std=gnu++2a
+doing compile
+Executing on host: c++ ./g++.dg/opt/pr99305.C    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -fmessage-length=0  -std=gnu++2a -O3 -fno-ipa-icf -fdump-tree-optimized  -S -o pr99305.s    (timeout = 300)
+spawn -ignore SIGHUP c++ ./g++.dg/opt/pr99305.C -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fmessage-length=0 -std=gnu++2a -O3 -fno-ipa-icf -fdump-tree-optimized -S -o pr99305.s
+pid is 18851 -18851
+pid is -1
+output is  status 0
+PASS: g++.dg/opt/pr99305.C  -std=gnu++2a (test for excess errors)
+g++.dg/opt/pr99305.C  -std=gnu++2a : pattern found 0 times
+FAIL: g++.dg/opt/pr99305.C  -std=gnu++2a  scan-tree-dump-times optimized " = \\(unsigned char\\) c_[0-9]*\\(D\\);" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++2a  scan-tree-dump-times optimized " = [^\n\r]* \\+ [0-9]*;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++2a  scan-tree-dump-times optimized " = [^\n\r]* <= 9;" 3
+PASS: g++.dg/opt/pr99305.C  -std=gnu++2a  scan-tree-dump-not optimized "if \\(c_[0-9]*\\(D\\) [!=]= 0\\)"
+PASS: g++.dg/opt/pr99305.C  -std=gnu++2a  scan-tree-dump-not optimized " = PHI <"
+testcase ./g++.dg/dg.exp completed in 8 seconds
+
+		=== g++ Summary ===
+
+# of expected passes		20
+# of unexpected failures	4
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: c++  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-file-name=libgcc_s.so
+pid is 18859 -18859
+/usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: c++  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-multi-directory
+pid is 18862 -18862
+.
+pid is -1
+output is .
+ status 0
+Executing on host: c++  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP c++ -print-multi-lib
+pid is 18865 -18865
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+ALWAYS_CXXFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } additional_flags= ldflags= additional_flags=-fmessage-length=0
+Executing on host: c++ -v    (timeout = 300)
+spawn -ignore SIGHUP c++ -v
+pid is 18868 -18868
+Using built-in specs.
+COLLECT_GCC=c++
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+pid is -1
+output is Using built-in specs.
+COLLECT_GCC=c++
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+ status 0
+/usr/bin/c++  version 10.3.1 (GCC) 
+
+runtest completed at Wed May 24 18:52:27 2023

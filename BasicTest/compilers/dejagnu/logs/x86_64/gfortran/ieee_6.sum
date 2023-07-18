@@ -1,0 +1,28 @@
+Test run by mx on Wed May 24 17:28:51 2023
+Native configuration is x86_64-pc-linux-gnu
+
+		=== gfortran tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./gfortran.dg/ieee/ieee.exp ...
+PASS: gfortran.dg/ieee/ieee_6.f90   -O0  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -O0  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O1  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -O1  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O2  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -O2  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -g  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -g  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -Os  (test for excess errors)
+PASS: gfortran.dg/ieee/ieee_6.f90   -Os  execution test
+
+		=== gfortran Summary ===
+
+# of expected passes		12
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+

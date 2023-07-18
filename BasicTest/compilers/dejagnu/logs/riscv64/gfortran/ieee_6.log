@@ -1,0 +1,348 @@
+Opening log files in /home/openeuler/log/gfortran
+Test run by openeuler on Wed May 24 17:31:05 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== gfortran tests ===
+
+setting trap for SIGINT to interrupted by user
+setting trap for SIGQUIT to interrupted by user
+setting trap for SIGTERM to terminated
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for build, name is openeuler-riscv64
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for host, name is openeuler-riscv64
+Schedule of variations:
+    unix
+
+target is unix
+Running target unix
+dirlist is /usr/share/dejagnu/baseboards/openeuler-riscv64 /usr/share/dejagnu/baseboards
+Using /usr/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /usr/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/default.exp as tool-and-target-specific interface file.
+Loading /usr/share/dejagnu/standard.exp
+pushing config for target, name is unix
+Running ./gfortran.dg/ieee/ieee.exp ...
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: gfortran  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-file-name=libgcc_s.so
+pid is 15157 -15157
+/usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: gfortran  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-directory
+pid is 15161 -15161
+.
+pid is -1
+output is .
+ status 0
+Executing on host: gfortran  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-lib
+pid is 15164 -15164
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+ALWAYS_GFORTRANFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } ldflags=
+Loading ./lib/gfortran-dg.exp
+Loading ./lib/gcc-dg.exp
+Loading /usr/share/dejagnu/dg.exp
+Loading ./lib/file-format.exp
+Loading ./lib/target-supports-dg.exp
+Loading ./lib/scanasm.exp
+Loading ./lib/scanrtl.exp
+Loading ./lib/scandump.exp
+Loading ./lib/scantree.exp
+Loading ./lib/scanltranstree.exp
+Loading ./lib/scanipa.exp
+Loading ./lib/scanwpaipa.exp
+Loading ./lib/scanlang.exp
+Loading ./lib/timeout-dg.exp
+Loading ./lib/torture-options.exp
+Loading ./lib/fortran-modules.exp
+check_compile tool: gfortran for lto
+doing compile
+Executing on host: gfortran    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -c -o lto15105.o lto15105.c    (timeout = 300)
+spawn -ignore SIGHUP gfortran -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -c -o lto15105.o lto15105.c
+pid is 15167 -15167
+pid is -1
+output is  status 0
+check_compile tool: gfortran for linker_plugin
+doing compile
+Executing on host: gfortran linker_plugin15105.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -fuse-linker-plugin   -lm  -o linker_plugin15105.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran linker_plugin15105.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -fuse-linker-plugin -lm -o linker_plugin15105.exe
+pid is 15172 -15172
+pid is -1
+output is  status 0
+check_compile tool: gfortran for offload_gcn
+doing compile
+Executing on host: gfortran offload_gcn15105.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -foffload=amdgcn-amdhsa -S -o offload_gcn15105.s    (timeout = 300)
+spawn -ignore SIGHUP gfortran offload_gcn15105.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -foffload=amdgcn-amdhsa -S -o offload_gcn15105.s
+pid is 15185 -15185
+gfortran: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+pid is -1
+close result is 15185 exp6 0 1
+output is gfortran: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+ status 1
+compiler exited with status 1
+check_compile tool: gfortran for fortran_ieee
+doing compile
+Executing on host: gfortran fortran_ieee15105.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -fintrinsic-modules-path /usr/./libgfortran/   -lm  -o fortran_ieee15105.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran fortran_ieee15105.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -fintrinsic-modules-path /usr/./libgfortran/ -lm -o fortran_ieee15105.exe
+pid is 15188 -15188
+pid is -1
+output is  status 0
+torture_without_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -g } { -Os }"
+torture_with_loops = "{ -O0 } { -O1 } { -O2 } { -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions } { -O3 -g } { -Os }"
+Testing ieee/ieee_6.f90,   -O0 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O0   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O0 -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15195 -15195
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+check_compile tool: gfortran for exceptions_enabled
+doing compile
+Executing on host: gfortran exceptions_enabled15105.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -S -o exceptions_enabled15105.s    (timeout = 300)
+spawn -ignore SIGHUP gfortran exceptions_enabled15105.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -S -o exceptions_enabled15105.s
+pid is 15202 -15202
+exceptions_enabled15105.c: In function 'foo':
+exceptions_enabled15105.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled15105.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled15105.c:4:12: error: expected ';' before numeric constant
+pid is -1
+close result is 15202 exp6 0 1
+output is exceptions_enabled15105.c: In function 'foo':
+exceptions_enabled15105.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled15105.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled15105.c:4:12: error: expected ';' before numeric constant
+ status 1
+compiler exited with status 1
+PASS: gfortran.dg/ieee/ieee_6.f90   -O0  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O0  execution test
+Testing ieee/ieee_6.f90,   -O1 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O1   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O1 -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15208 -15208
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+PASS: gfortran.dg/ieee/ieee_6.f90   -O1  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O1  execution test
+Testing ieee/ieee_6.f90,   -O2 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O2   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O2 -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15217 -15217
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+PASS: gfortran.dg/ieee/ieee_6.f90   -O2  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O2  execution test
+Testing ieee/ieee_6.f90,   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15226 -15226
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  execution test
+Testing ieee/ieee_6.f90,   -O3 -g 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -O3 -g   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -O3 -g -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15235 -15235
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -g  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O3 -g  execution test
+Testing ieee/ieee_6.f90,   -Os 
+doing compile
+Executing on host: gfortran ./gfortran.dg/ieee/ieee_6.f90    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never    -Os   -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans    -lm  -o ./ieee_6.exe    (timeout = 300)
+spawn -ignore SIGHUP gfortran ./gfortran.dg/ieee/ieee_6.f90 -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -Os -pedantic-errors -fintrinsic-modules-path /usr/./libgfortran/ -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -lm -o ./ieee_6.exe
+pid is 15244 -15244
+pid is -1
+output is  status 0
+comput_output0:
+
+comput_output1:
+
+comput_output2:
+
+comput_output3:
+
+comput_output4:
+
+PASS: gfortran.dg/ieee/ieee_6.f90   -Os  (test for excess errors)
+Setting LD_LIBRARY_PATH to .:/usr/lib/gcc/riscv64-linux-gnu/10.3.1:.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./ieee_6.exe 
+spawn [open ...]
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+STOP 7
+exp9 file6
+close result is child process exited abnormally
+FAIL: gfortran.dg/ieee/ieee_6.f90   -Os  execution test
+testcase ./gfortran.dg/ieee/ieee.exp completed in 16 seconds
+
+		=== gfortran Summary ===
+
+# of expected passes		6
+# of unexpected failures	6
+compiler is gcc
+GCC path is .
+shared lib extension: so
+Executing on host: gfortran  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-file-name=libgcc_s.so
+pid is 15257 -15257
+/usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: gfortran  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-directory
+pid is 15260 -15260
+.
+pid is -1
+output is .
+ status 0
+Executing on host: gfortran  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP gfortran -print-multi-lib
+pid is 15263 -15263
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_RUN_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+SHLIB_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=.:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+ALWAYS_GFORTRANFLAGS set to {additional_flags=-fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never } ldflags=
+Executing on host: gfortran -v    (timeout = 300)
+spawn -ignore SIGHUP gfortran -v
+pid is 15266 -15266
+Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+pid is -1
+output is Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+ status 0
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+
+runtest completed at Wed May 24 17:31:24 2023

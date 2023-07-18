@@ -1,0 +1,180 @@
+Opening log files in /home/openeuler/log/gcc
+Test run by openeuler on Wed May 24 17:29:37 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== gcc tests ===
+
+setting trap for SIGINT to interrupted by user
+setting trap for SIGQUIT to interrupted by user
+setting trap for SIGTERM to terminated
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for build, name is openeuler-riscv64
+dirlist is /usr/share/dejagnu/baseboards
+pushing config for host, name is openeuler-riscv64
+Schedule of variations:
+    unix
+
+target is unix
+Running target unix
+dirlist is /usr/share/dejagnu/baseboards/openeuler-riscv64 /usr/share/dejagnu/baseboards
+Using /usr/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /usr/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/default.exp as tool-and-target-specific interface file.
+Loading /usr/share/dejagnu/standard.exp
+pushing config for target, name is unix
+Running ./gcc.dg/dg.exp ...
+Loading ./lib/gcc-dg.exp
+Loading /usr/share/dejagnu/dg.exp
+Loading ./lib/file-format.exp
+Loading ./lib/target-supports-dg.exp
+Loading ./lib/scanasm.exp
+Loading ./lib/scanrtl.exp
+Loading ./lib/scandump.exp
+Loading ./lib/scantree.exp
+Loading ./lib/scanltranstree.exp
+Loading ./lib/scanipa.exp
+Loading ./lib/scanwpaipa.exp
+Loading ./lib/scanlang.exp
+Loading ./lib/timeout-dg.exp
+Loading ./lib/torture-options.exp
+Loading ./lib/fortran-modules.exp
+Executing on host: gcc  -print-file-name=libgcc_s.so   (timeout = 300)
+spawn -ignore SIGHUP gcc -print-file-name=libgcc_s.so
+pid is 14441 -14441
+/usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+pid is -1
+output is /usr/lib/gcc/riscv64-linux-gnu/10.3.1/libgcc_s.so
+ status 0
+Executing on host: gcc  -print-multi-directory   (timeout = 300)
+spawn -ignore SIGHUP gcc -print-multi-directory
+pid is 14445 -14445
+.
+pid is -1
+output is .
+ status 0
+Executing on host: gcc  -print-multi-lib   (timeout = 300)
+spawn -ignore SIGHUP gcc -print-multi-lib
+pid is 14448 -14448
+.;
+pid is -1
+output is .;
+ status 0
+LD_LIBRARY_PATH=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_RUN_PATH=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+SHLIB_PATH=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_32=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+LD_LIBRARY_PATH_64=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+DYLD_LIBRARY_PATH=:/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+check_compile tool: gcc for lto
+doing compile
+Executing on host: gcc    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -c -o lto14393.o lto14393.c    (timeout = 300)
+spawn -ignore SIGHUP gcc -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -c -o lto14393.o lto14393.c
+pid is 14451 -14451
+pid is -1
+output is  status 0
+check_compile tool: gcc for linker_plugin
+doing compile
+Executing on host: gcc linker_plugin14393.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -flto -fuse-linker-plugin  -lm  -o linker_plugin14393.exe    (timeout = 300)
+spawn -ignore SIGHUP gcc linker_plugin14393.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -flto -fuse-linker-plugin -lm -o linker_plugin14393.exe
+pid is 14456 -14456
+pid is -1
+output is  status 0
+check_compile tool: gcc for offload_gcn
+doing compile
+Executing on host: gcc offload_gcn14393.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -foffload=amdgcn-amdhsa -S -o offload_gcn14393.s    (timeout = 300)
+spawn -ignore SIGHUP gcc offload_gcn14393.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -foffload=amdgcn-amdhsa -S -o offload_gcn14393.s
+pid is 14469 -14469
+gcc: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+pid is -1
+close result is 14469 exp6 0 1
+output is gcc: fatal error: GCC is not configured to support amdgcn-amdhsa as offload target
+compilation terminated.
+ status 1
+compiler exited with status 1
+Testing c-c++-common/spec-barrier-1.c
+doing compile
+Executing on host: gcc ./c-c++-common/spec-barrier-1.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never   -Wc++-compat  -O  -lm  -o ./spec-barrier-1.exe    (timeout = 300)
+spawn -ignore SIGHUP gcc ./c-c++-common/spec-barrier-1.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -Wc++-compat -O -lm -o ./spec-barrier-1.exe
+pid is 14472 -14472
+./c-c++-common/spec-barrier-1.c: In function 'main':
+./c-c++-common/spec-barrier-1.c:21:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:23:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:25:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:27:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:29:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:31:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:34:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+pid is -1
+output is ./c-c++-common/spec-barrier-1.c: In function 'main':
+./c-c++-common/spec-barrier-1.c:21:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:23:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:25:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:27:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:29:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:31:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:34:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+ status 0
+check_compile tool: gcc for exceptions_enabled
+doing compile
+Executing on host: gcc exceptions_enabled14393.c    -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never  -fdiagnostics-urls=never  -S -o exceptions_enabled14393.s    (timeout = 300)
+spawn -ignore SIGHUP gcc exceptions_enabled14393.c -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never -fdiagnostics-urls=never -S -o exceptions_enabled14393.s
+pid is 14479 -14479
+exceptions_enabled14393.c: In function 'foo':
+exceptions_enabled14393.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled14393.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled14393.c:4:12: error: expected ';' before numeric constant
+pid is -1
+close result is 14479 exp6 0 1
+output is exceptions_enabled14393.c: In function 'foo':
+exceptions_enabled14393.c:4:7: error: 'throw' undeclared (first use in this function)
+exceptions_enabled14393.c:4:7: note: each undeclared identifier is reported only once for each function it appears in
+exceptions_enabled14393.c:4:12: error: expected ';' before numeric constant
+ status 1
+compiler exited with status 1
+FAIL: c-c++-common/spec-barrier-1.c  -Wc++-compat  (test for excess errors)
+Excess errors:
+./c-c++-common/spec-barrier-1.c:21:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:23:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:25:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:27:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:29:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:31:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+./c-c++-common/spec-barrier-1.c:34:3: warning: this target does not define a speculation barrier; your program will still execute correctly, but incorrect speculation may not be restricted
+
+Setting LD_LIBRARY_PATH to :/usr/lib/gcc/riscv64-linux-gnu/10.3.1::/usr/lib/gcc/riscv64-linux-gnu/10.3.1
+Execution timeout is: 300
+spawning command ./spec-barrier-1.exe 
+spawn [open ...]
+exp9 file6
+PASS: c-c++-common/spec-barrier-1.c  -Wc++-compat  execution test
+testcase ./gcc.dg/dg.exp completed in 4 seconds
+
+		=== gcc Summary ===
+
+# of expected passes		1
+# of unexpected failures	1
+Executing on host: gcc -v    (timeout = 300)
+spawn -ignore SIGHUP gcc -v
+pid is 14485 -14485
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+pid is -1
+output is Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/10.3.1/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,fortran,objc,obj-c++,lto --enable-plugin --enable-initfini-array --disable-libgcj --without-isl --without-cloog --enable-gnu-indirect-function --build=riscv64-linux-gnu --with-stage1-ldflags=' -Wl,-z,relro,-z,now' --with-boot-ldflags=' -Wl,-z,relro,-z,now' --disable-bootstrap --with-arch=rv64g --with-abi=lp64d --disable-libquadmath --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 10.3.1 (GCC) 
+ status 0
+/usr/bin/gcc  version 10.3.1 (GCC) 
+
+runtest completed at Wed May 24 17:29:49 2023

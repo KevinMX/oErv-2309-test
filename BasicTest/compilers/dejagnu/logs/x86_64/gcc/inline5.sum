@@ -1,0 +1,15 @@
+Test run by mx on Wed May 24 17:28:46 2023
+Native configuration is x86_64-pc-linux-gnu
+
+		=== gcc tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./gcc.dg/debug/debug.exp ...
+
+		=== gcc Summary ===
+
+/usr/bin/gcc  version 10.3.1 (GCC) 
+

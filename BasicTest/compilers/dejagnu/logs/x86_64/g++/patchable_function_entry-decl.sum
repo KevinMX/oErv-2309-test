@@ -1,0 +1,24 @@
+Test run by mx on Wed May 24 18:52:30 2023
+Native configuration is x86_64-pc-linux-gnu
+
+		=== g++ tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./g++.dg/dg.exp ...
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++98 (test for excess errors)
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++98  scan-assembler-times nop|NOP 2
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++14 (test for excess errors)
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++14  scan-assembler-times nop|NOP 2
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++17 (test for excess errors)
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++17  scan-assembler-times nop|NOP 2
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++2a (test for excess errors)
+PASS: c-c++-common/patchable_function_entry-decl.c  -std=gnu++2a  scan-assembler-times nop|NOP 2
+
+		=== g++ Summary ===
+
+# of expected passes		8
+/usr/bin/c++  version 10.3.1 (GCC) 
+

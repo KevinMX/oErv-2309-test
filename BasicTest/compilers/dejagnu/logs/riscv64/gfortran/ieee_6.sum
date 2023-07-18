@@ -1,0 +1,29 @@
+Test run by openeuler on Wed May 24 17:31:05 2023
+Native configuration is riscv64-unknown-linux-gnu
+
+		=== gfortran tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./gfortran.dg/ieee/ieee.exp ...
+PASS: gfortran.dg/ieee/ieee_6.f90   -O0  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O0  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O1  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O1  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O2  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O2  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O3 -fomit-frame-pointer -funroll-loops -fpeel-loops -ftracer -finline-functions  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -O3 -g  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -O3 -g  execution test
+PASS: gfortran.dg/ieee/ieee_6.f90   -Os  (test for excess errors)
+FAIL: gfortran.dg/ieee/ieee_6.f90   -Os  execution test
+
+		=== gfortran Summary ===
+
+# of expected passes		6
+# of unexpected failures	6
+/usr/bin/gfortran  version 10.3.1 (GCC) 
+
