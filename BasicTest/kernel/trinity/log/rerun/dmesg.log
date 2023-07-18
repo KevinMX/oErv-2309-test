@@ -1,0 +1,1515 @@
+[  544.790861] rcu: INFO: rcu_sched self-detected stall on CPU
+[  544.794891] rcu: 	5-....: (36669 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=14833
+[  544.799515] 	(t=36833 jiffies g=22425 q=4968 ncpus=8)
+[  544.803372] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  544.807992] Hardware name: riscv-virtio,qemu (DT)
+[  544.812194] epc : _save_context+0xa2/0xda
+[  544.817588]  ra : _copy_from_user+0x74/0xa4
+[  544.826008] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  544.835827]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  544.844829]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  544.851883]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  544.860212]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  544.867544]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  544.877573]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  544.884793]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  544.892924]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  544.900069]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  544.907247]  t5 : 0000000000000010 t6 : 0000000000040000
+[  544.914978] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  544.921799] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  544.929315] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  549.902844] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 37459 jiffies s: 4029 root: 0x20/.
+[  549.907201] rcu: blocking rcu_node structures (internal RCU debug):
+[  549.910485] Task dump for CPU 5:
+[  549.914113] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  549.917749] Call Trace:
+[  549.921452] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  572.127495] watchdog: BUG: soft lockup - CPU#5 stuck for 164s! [trinity-c21:5492]
+[  572.131377] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  572.146952] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  572.152803] Hardware name: riscv-virtio,qemu (DT)
+[  572.156599] epc : _save_context+0xa2/0xda
+[  572.160539]  ra : _copy_from_user+0x74/0xa4
+[  572.164588] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  572.168144]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  572.171646]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  572.174804]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  572.179592]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  572.183805]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  572.186977]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  572.190439]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  572.194711]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  572.198729]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  572.202198]  t5 : 0000000000000010 t6 : 0000000000040000
+[  572.205578] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  572.209969] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  572.214311] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  600.128365] watchdog: BUG: soft lockup - CPU#5 stuck for 190s! [trinity-c21:5492]
+[  600.132562] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  600.148859] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  600.152642] Hardware name: riscv-virtio,qemu (DT)
+[  600.156121] epc : _save_context+0xa2/0xda
+[  600.160383]  ra : _copy_from_user+0x74/0xa4
+[  600.164623] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  600.168244]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  600.172984]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  600.176719]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  600.180888]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  600.184785]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  600.188726]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  600.192947]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  600.197849]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  600.201592]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  600.205280]  t5 : 0000000000000010 t6 : 0000000000040000
+[  600.208963] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  600.213150] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  600.217397] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  605.200634] INFO: task khugepaged:62 blocked for more than 120 seconds.
+[  605.203745]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.207216] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.211243] task:khugepaged      state:D stack:0     pid:62    ppid:2      flags:0x00000000
+[  605.215760] Call Trace:
+[  605.219189] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.222167] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.225182] [<ffffffff80b2d34e>] schedule_timeout+0x12a/0x16e
+[  605.229278] [<ffffffff80b27f06>] __wait_for_common+0xe4/0x1f8
+[  605.232109] [<ffffffff80b28040>] wait_for_completion+0x26/0x2e
+[  605.236138] [<ffffffff80045430>] __flush_work.isra.0+0x68/0x7c
+[  605.239002] [<ffffffff800454b0>] flush_work+0x18/0x20
+[  605.242754] [<ffffffff801d7a82>] __lru_add_drain_all+0x188/0x1f8
+[  605.247513] [<ffffffff801db2fe>] lru_add_drain_all+0x1a/0x22
+[  605.251312] [<ffffffff8026cc9e>] khugepaged_do_scan.constprop.0+0x4c/0x1fc
+[  605.254674] [<ffffffff8026ce7c>] khugepaged+0x2e/0x84
+[  605.258111] [<ffffffff8004d7b4>] kthread+0xe2/0xf8
+[  605.261546] [<ffffffff80003da0>] ret_from_exception+0x0/0x16
+[  605.265428] INFO: task kworker/u16:2:79 blocked for more than 120 seconds.
+[  605.267878]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.271610] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.275061] task:kworker/u16:2   state:D stack:0     pid:79    ppid:2      flags:0x00000000
+[  605.279947] Workqueue: netns cleanup_net
+[  605.283731] Call Trace:
+[  605.287173] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.290248] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.294686] [<ffffffff80b2d34e>] schedule_timeout+0x12a/0x16e
+[  605.298575] [<ffffffff80b27f06>] __wait_for_common+0xe4/0x1f8
+[  605.301981] [<ffffffff80b28040>] wait_for_completion+0x26/0x2e
+[  605.305622] [<ffffffff80098488>] __wait_rcu_gp+0x156/0x158
+[  605.309050] [<ffffffff800a3060>] synchronize_rcu+0x52/0x98
+[  605.311978] [<ffffffff808f09aa>] cleanup_net+0x14e/0x2a2
+[  605.315885] [<ffffffff80046ac0>] process_one_work+0x184/0x3a2
+[  605.319167] [<ffffffff800470b2>] worker_thread+0x84/0x2bc
+[  605.321990] [<ffffffff8004d7b4>] kthread+0xe2/0xf8
+[  605.324105] [<ffffffff80003da0>] ret_from_exception+0x0/0x16
+[  605.328201] INFO: task kworker/2:2:249 blocked for more than 120 seconds.
+[  605.331659]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.334807] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.337909] task:kworker/2:2     state:D stack:0     pid:249   ppid:2      flags:0x00000000
+[  605.341135] Workqueue: events free_ipc
+[  605.343525] Call Trace:
+[  605.347013] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.350234] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.352857] [<ffffffff80b2d34e>] schedule_timeout+0x12a/0x16e
+[  605.355500] [<ffffffff80b27f06>] __wait_for_common+0xe4/0x1f8
+[  605.358690] [<ffffffff80b28040>] wait_for_completion+0x26/0x2e
+[  605.361626] [<ffffffff80098488>] __wait_rcu_gp+0x156/0x158
+[  605.364872] [<ffffffff800a3060>] synchronize_rcu+0x52/0x98
+[  605.367470] [<ffffffff802b141c>] kern_unmount+0x28/0x4c
+[  605.370699] [<ffffffff80464364>] mq_put_mnt+0x1c/0x24
+[  605.374536] [<ffffffff804645e4>] free_ipc+0x6a/0x10a
+[  605.377336] [<ffffffff80046ac0>] process_one_work+0x184/0x3a2
+[  605.379834] [<ffffffff800470b2>] worker_thread+0x84/0x2bc
+[  605.383130] [<ffffffff8004d7b4>] kthread+0xe2/0xf8
+[  605.386128] [<ffffffff80003da0>] ret_from_exception+0x0/0x16
+[  605.389494] INFO: task trinity-c12:4914 blocked for more than 121 seconds.
+[  605.392078]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.396842] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.399272] task:trinity-c12     state:D stack:0     pid:4914  ppid:561    flags:0x00000004
+[  605.402009] Call Trace:
+[  605.404096] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.407517] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.411550] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.415066] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.417999] [<ffffffff801ccee6>] generic_file_write_iter+0x34/0xc4
+[  605.420641] [<ffffffff80288724>] do_iter_readv_writev+0xa6/0x10c
+[  605.422968] [<ffffffff80289206>] do_iter_write+0x74/0x102
+[  605.425659] [<ffffffff80289356>] vfs_writev+0x98/0x1b6
+[  605.429485] [<ffffffff8028978a>] sys_pwritev+0xa0/0xdc
+[  605.431996] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.435337] INFO: task trinity-c31:4935 blocked for more than 121 seconds.
+[  605.438376]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.441275] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.443883] task:trinity-c31     state:D stack:0     pid:4935  ppid:561    flags:0x00000004
+[  605.448838] Call Trace:
+[  605.451335] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.454394] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.457031] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.459264] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.464033] [<ffffffff80286f66>] chmod_common+0x6a/0x14a
+[  605.467754] [<ffffffff80287194>] sys_fchmod+0x4c/0x8a
+[  605.471042] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.475234] INFO: task trinity-c5:5122 blocked for more than 121 seconds.
+[  605.478561]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.481944] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.485809] task:trinity-c5      state:D stack:0     pid:5122  ppid:561    flags:0x00000004
+[  605.488625] Call Trace:
+[  605.491988] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.497558] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.499963] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.503208] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.507382] [<ffffffff801ccee6>] generic_file_write_iter+0x34/0xc4
+[  605.512674] [<ffffffff8028863c>] new_sync_write+0x98/0xda
+[  605.516225] [<ffffffff8028ad54>] vfs_write+0x21a/0x292
+[  605.519811] [<ffffffff8028b0ac>] ksys_write+0x6e/0xe4
+[  605.522790] [<ffffffff8028b13c>] sys_write+0x1a/0x22
+[  605.526559] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.532692] INFO: task trinity-c11:5185 blocked for more than 121 seconds.
+[  605.535117]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.537991] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.540752] task:trinity-c11     state:D stack:0     pid:5185  ppid:561    flags:0x00000004
+[  605.543351] Call Trace:
+[  605.547111] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.550352] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.553107] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.555810] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.559010] [<ffffffff801ccee6>] generic_file_write_iter+0x34/0xc4
+[  605.563032] [<ffffffff80288724>] do_iter_readv_writev+0xa6/0x10c
+[  605.566699] [<ffffffff80289206>] do_iter_write+0x74/0x102
+[  605.569542] [<ffffffff80289356>] vfs_writev+0x98/0x1b6
+[  605.571917] [<ffffffff802894ea>] do_writev+0x76/0x10e
+[  605.574548] [<ffffffff8028959c>] sys_writev+0x1a/0x22
+[  605.577549] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.580956] INFO: task trinity-c27:5236 blocked for more than 121 seconds.
+[  605.583531]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.586480] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.589423] task:trinity-c27     state:D stack:0     pid:5236  ppid:561    flags:0x00000004
+[  605.591889] Call Trace:
+[  605.595311] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.598606] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.601726] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.603940] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.606725] [<ffffffff80286f66>] chmod_common+0x6a/0x14a
+[  605.609397] [<ffffffff80287194>] sys_fchmod+0x4c/0x8a
+[  605.613347] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.616612] INFO: task trinity-c0:5247 blocked for more than 121 seconds.
+[  605.619237]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.622295] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.626200] task:trinity-c0      state:D stack:0     pid:5247  ppid:561    flags:0x00000004
+[  605.631070] Call Trace:
+[  605.634118] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.636740] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.639732] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.642860] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.646058] [<ffffffff801ccee6>] generic_file_write_iter+0x34/0xc4
+[  605.649746] [<ffffffff80288724>] do_iter_readv_writev+0xa6/0x10c
+[  605.652894] [<ffffffff80289206>] do_iter_write+0x74/0x102
+[  605.655468] [<ffffffff80289356>] vfs_writev+0x98/0x1b6
+[  605.658336] [<ffffffff8028978a>] sys_pwritev+0xa0/0xdc
+[  605.661305] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  605.665492] INFO: task trinity-c23:5263 blocked for more than 121 seconds.
+[  605.669010]       Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  605.671347] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  605.674263] task:trinity-c23     state:D stack:0     pid:5263  ppid:561    flags:0x00000004
+[  605.677517] Call Trace:
+[  605.680133] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  605.684131] [<ffffffff80b274b8>] schedule+0x58/0xe4
+[  605.687335] [<ffffffff80b2af5e>] rwsem_down_write_slowpath+0x200/0x4e6
+[  605.690276] [<ffffffff80b2b33a>] down_write+0x74/0x7e
+[  605.693147] [<ffffffff8028732a>] chown_common+0xfa/0x260
+[  605.697125] [<ffffffff80287702>] ksys_fchown+0x76/0xa2
+[  605.699418] [<ffffffff8028774c>] sys_fchown+0x1e/0x26
+[  605.702590] [<ffffffff80003d92>] ret_from_syscall+0x0/0x2
+[  607.948533] rcu: INFO: rcu_sched self-detected stall on CPU
+[  607.951487] rcu: 	5-....: (52377 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=21246
+[  607.954704] 	(t=52621 jiffies g=22425 q=5429 ncpus=8)
+[  607.957565] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  607.960832] Hardware name: riscv-virtio,qemu (DT)
+[  607.964074] epc : _save_context+0xa2/0xda
+[  607.967079]  ra : _copy_from_user+0x74/0xa4
+[  607.970084] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  607.973760]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  607.980063]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  607.987370]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  607.992955]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  608.000759]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  608.006728]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  608.013034]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  608.019410]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  608.025739]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  608.032954]  t5 : 0000000000000010 t6 : 0000000000040000
+[  608.038560] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  608.045135] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  608.051808] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  613.396828] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 53332 jiffies s: 4029 root: 0x20/.
+[  613.400184] rcu: blocking rcu_node structures (internal RCU debug):
+[  613.403632] Task dump for CPU 5:
+[  613.406633] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  613.409866] Call Trace:
+[  613.414461] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  632.129270] watchdog: BUG: soft lockup - CPU#5 stuck for 220s! [trinity-c21:5492]
+[  632.134285] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  632.148766] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  632.154206] Hardware name: riscv-virtio,qemu (DT)
+[  632.157692] epc : _save_context+0xa2/0xda
+[  632.160741]  ra : _copy_from_user+0x74/0xa4
+[  632.165584] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  632.169494]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  632.173562]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  632.176644]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  632.180655]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  632.185885]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  632.189382]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  632.193465]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  632.198181]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  632.202186]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  632.205606]  t5 : 0000000000000010 t6 : 0000000000040000
+[  632.208658] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  632.212575] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  632.216740] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  660.130133] watchdog: BUG: soft lockup - CPU#5 stuck for 246s! [trinity-c21:5492]
+[  660.134535] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  660.151040] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  660.155513] Hardware name: riscv-virtio,qemu (DT)
+[  660.159231] epc : _save_context+0xa2/0xda
+[  660.163277]  ra : _copy_from_user+0x74/0xa4
+[  660.167563] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  660.171422]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  660.175252]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  660.179566]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  660.183945]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  660.187804]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  660.191672]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  660.195956]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  660.200225]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  660.203987]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  660.208101]  t5 : 0000000000000010 t6 : 0000000000040000
+[  660.211813] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  660.216249] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  660.220099] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  671.070261] rcu: INFO: rcu_sched self-detected stall on CPU
+[  671.073658] rcu: 	5-....: (68085 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=27545
+[  671.077379] 	(t=68401 jiffies g=22425 q=6623 ncpus=8)
+[  671.081058] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  671.085114] Hardware name: riscv-virtio,qemu (DT)
+[  671.090503] epc : _save_context+0xa2/0xda
+[  671.096810]  ra : _copy_from_user+0x74/0xa4
+[  671.103585] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  671.109989]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  671.117683]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  671.125298]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  671.132597]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  671.139085]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  671.145245]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  671.152678]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  671.159382]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  671.166865]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  671.173396]  t5 : 0000000000000010 t6 : 0000000000040000
+[  671.179798] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  671.187180] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  671.194459] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  676.886494] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 69204 jiffies s: 4029 root: 0x20/.
+[  676.891719] rcu: blocking rcu_node structures (internal RCU debug):
+[  676.895312] Task dump for CPU 5:
+[  676.899557] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  676.903647] Call Trace:
+[  676.906953] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  696.130946] watchdog: BUG: soft lockup - CPU#5 stuck for 280s! [trinity-c21:5492]
+[  696.135825] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  696.150512] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  696.155384] Hardware name: riscv-virtio,qemu (DT)
+[  696.158720] epc : _save_context+0xa2/0xda
+[  696.163688]  ra : _copy_from_user+0x74/0xa4
+[  696.167349] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  696.170674]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  696.174837]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  696.180317]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  696.184271]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  696.189040]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  696.192547]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  696.196449]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  696.200836]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  696.205098]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  696.208574]  t5 : 0000000000000010 t6 : 0000000000040000
+[  696.212151] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  696.215808] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  696.219474] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  724.131818] watchdog: BUG: soft lockup - CPU#5 stuck for 306s! [trinity-c21:5492]
+[  724.136606] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  724.154865] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  724.158919] Hardware name: riscv-virtio,qemu (DT)
+[  724.162696] epc : _save_context+0xa2/0xda
+[  724.166570]  ra : _copy_from_user+0x74/0xa4
+[  724.170825] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  724.174547]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  724.178554]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  724.182364]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  724.186630]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  724.190261]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  724.193986]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  724.197790]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  724.201917]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  724.206039]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  724.209886]  t5 : 0000000000000010 t6 : 0000000000040000
+[  724.213620] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  724.218025] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  724.221834] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  734.212124] rcu: INFO: rcu_sched self-detected stall on CPU
+[  734.216583] rcu: 	5-....: (83793 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=33849
+[  734.220881] 	(t=84187 jiffies g=22425 q=8191 ncpus=8)
+[  734.224463] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  734.228025] Hardware name: riscv-virtio,qemu (DT)
+[  734.231670] epc : _save_context+0xa2/0xda
+[  734.239278]  ra : _copy_from_user+0x74/0xa4
+[  734.245984] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  734.253027]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  734.259733]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  734.266900]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  734.273887]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  734.281064]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  734.288166]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  734.294760]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  734.301923]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  734.308850]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  734.316244]  t5 : 0000000000000010 t6 : 0000000000040000
+[  734.322928] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  734.330006] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  734.337276] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  740.372262] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 85075 jiffies s: 4029 root: 0x20/.
+[  740.376450] rcu: blocking rcu_node structures (internal RCU debug):
+[  740.381020] Task dump for CPU 5:
+[  740.384582] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  740.388636] Call Trace:
+[  740.392389] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  760.132830] watchdog: BUG: soft lockup - CPU#5 stuck for 339s! [trinity-c21:5492]
+[  760.136921] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  760.154366] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  760.158148] Hardware name: riscv-virtio,qemu (DT)
+[  760.161905] epc : _save_context+0xa2/0xda
+[  760.165547]  ra : _copy_from_user+0x74/0xa4
+[  760.169740] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  760.173828]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  760.177415]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  760.180846]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  760.186251]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  760.190120]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  760.193920]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  760.197638]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  760.201571]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  760.206369]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  760.209997]  t5 : 0000000000000010 t6 : 0000000000040000
+[  760.213569] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  760.217573] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  760.221546] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  788.133525] watchdog: BUG: soft lockup - CPU#5 stuck for 366s! [trinity-c21:5492]
+[  788.137747] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  788.154991] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  788.158773] Hardware name: riscv-virtio,qemu (DT)
+[  788.162671] epc : _save_context+0xa2/0xda
+[  788.167140]  ra : _copy_from_user+0x74/0xa4
+[  788.171554] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  788.175685]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  788.179808]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  788.183705]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  788.187705]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  788.191749]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  788.195426]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  788.199000]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  788.203149]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  788.206884]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  788.210457]  t5 : 0000000000000010 t6 : 0000000000040000
+[  788.213985] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  788.217790] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  788.221838] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  797.353755] rcu: INFO: rcu_sched self-detected stall on CPU
+[  797.358041] rcu: 	5-....: (99501 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=40376
+[  797.362718] 	(t=99972 jiffies g=22425 q=8339 ncpus=8)
+[  797.366595] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  797.371779] Hardware name: riscv-virtio,qemu (DT)
+[  797.376056] epc : _save_context+0xa2/0xda
+[  797.381088]  ra : _copy_from_user+0x74/0xa4
+[  797.387879] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  797.395322]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  797.402546]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  797.410995]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  797.417357]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  797.425324]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  797.432791]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  797.441164]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  797.449057]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  797.456673]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  797.463195]  t5 : 0000000000000010 t6 : 0000000000040000
+[  797.470818] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  797.478696] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  797.485853] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  803.862135] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 100947 jiffies s: 4029 root: 0x20/.
+[  803.867342] rcu: blocking rcu_node structures (internal RCU debug):
+[  803.872375] Task dump for CPU 5:
+[  803.876346] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  803.880360] Call Trace:
+[  803.884621] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  824.134324] watchdog: BUG: soft lockup - CPU#5 stuck for 399s! [trinity-c21:5492]
+[  824.138853] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  824.154312] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  824.158148] Hardware name: riscv-virtio,qemu (DT)
+[  824.162443] epc : _save_context+0xa2/0xda
+[  824.166048]  ra : _copy_from_user+0x74/0xa4
+[  824.169619] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  824.173335]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  824.177010]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  824.180478]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  824.184405]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  824.188325]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  824.192091]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  824.195674]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  824.199105]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  824.202728]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  824.206160]  t5 : 0000000000000010 t6 : 0000000000040000
+[  824.211384] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  824.214976] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  824.218140] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  852.135184] watchdog: BUG: soft lockup - CPU#5 stuck for 425s! [trinity-c21:5492]
+[  852.140052] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  852.156790] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  852.161101] Hardware name: riscv-virtio,qemu (DT)
+[  852.164734] epc : _save_context+0xa2/0xda
+[  852.168406]  ra : _copy_from_user+0x74/0xa4
+[  852.172445] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  852.177139]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  852.181341]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  852.185212]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  852.189736]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  852.193807]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  852.197954]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  852.201931]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  852.206642]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  852.211958]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  852.215830]  t5 : 0000000000000010 t6 : 0000000000040000
+[  852.219506] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  852.223928] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  852.228824] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  860.487591] rcu: INFO: rcu_sched self-detected stall on CPU
+[  860.493804] rcu: 	5-....: (115205 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=48253
+[  860.497669] 	(t=115755 jiffies g=22425 q=8489 ncpus=8)
+[  860.501372] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  860.506527] Hardware name: riscv-virtio,qemu (DT)
+[  860.513290] epc : _save_context+0xa2/0xda
+[  860.524595]  ra : _copy_from_user+0x74/0xa4
+[  860.533850] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  860.546214]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  860.558473]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  860.567838]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  860.574823]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  860.582218]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  860.589597]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  860.596385]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  860.602501]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  860.609458]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  860.617170]  t5 : 0000000000000010 t6 : 0000000000040000
+[  860.624106] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  860.631347] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  860.638829] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  867.351735] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 116819 jiffies s: 4029 root: 0x20/.
+[  867.357008] rcu: blocking rcu_node structures (internal RCU debug):
+[  867.364363] Task dump for CPU 5:
+[  867.369700] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  867.374856] Call Trace:
+[  867.378471] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  888.136104] watchdog: BUG: soft lockup - CPU#5 stuck for 459s! [trinity-c21:5492]
+[  888.139582] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  888.155911] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  888.161157] Hardware name: riscv-virtio,qemu (DT)
+[  888.164607] epc : _save_context+0xa2/0xda
+[  888.167738]  ra : _copy_from_user+0x74/0xa4
+[  888.171264] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  888.175551]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  888.179263]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  888.183027]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  888.186553]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  888.191016]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  888.195246]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  888.198971]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  888.202945]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  888.207021]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  888.211204]  t5 : 0000000000000010 t6 : 0000000000040000
+[  888.214605] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  888.218177] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  888.221677] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  916.136851] watchdog: BUG: soft lockup - CPU#5 stuck for 485s! [trinity-c21:5492]
+[  916.141041] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  916.156611] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  916.161072] Hardware name: riscv-virtio,qemu (DT)
+[  916.165466] epc : _save_context+0xa2/0xda
+[  916.169506]  ra : _copy_from_user+0x74/0xa4
+[  916.173421] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  916.177342]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  916.181029]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  916.184340]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  916.188028]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  916.192244]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  916.196319]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  916.200079]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  916.203887]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  916.208482]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  916.213851]  t5 : 0000000000000010 t6 : 0000000000040000
+[  916.217746] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  916.221635] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  916.226036] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  923.645039] rcu: INFO: rcu_sched self-detected stall on CPU
+[  923.648447] rcu: 	5-....: (130911 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=56130
+[  923.652386] 	(t=131543 jiffies g=22425 q=8661 ncpus=8)
+[  923.656100] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  923.660245] Hardware name: riscv-virtio,qemu (DT)
+[  923.663888] epc : _save_context+0xa2/0xda
+[  923.669561]  ra : _copy_from_user+0x74/0xa4
+[  923.675403] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  923.682349]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  923.688781]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  923.696239]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  923.703413]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  923.710530]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  923.717698]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  923.724394]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  923.731163]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  923.738391]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  923.745519]  t5 : 0000000000000010 t6 : 0000000000040000
+[  923.751597] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  923.759111] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  923.766379] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  930.845295] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 132692 jiffies s: 4029 root: 0x20/.
+[  930.849802] rcu: blocking rcu_node structures (internal RCU debug):
+[  930.853445] Task dump for CPU 5:
+[  930.856886] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  930.862619] Call Trace:
+[  930.866516] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[  948.137913] watchdog: BUG: soft lockup - CPU#5 stuck for 515s! [trinity-c21:5492]
+[  948.141298] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  948.159341] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  948.163550] Hardware name: riscv-virtio,qemu (DT)
+[  948.167277] epc : _save_context+0xa2/0xda
+[  948.171255]  ra : _copy_from_user+0x74/0xa4
+[  948.175032] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  948.179288]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  948.183206]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  948.186782]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  948.190625]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  948.194919]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  948.198964]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  948.202718]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  948.206207]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  948.209947]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  948.214816]  t5 : 0000000000000010 t6 : 0000000000040000
+[  948.218338] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  948.221852] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  948.225103] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  976.138482] watchdog: BUG: soft lockup - CPU#5 stuck for 541s! [trinity-c21:5492]
+[  976.142030] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[  976.157757] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  976.163078] Hardware name: riscv-virtio,qemu (DT)
+[  976.166947] epc : _save_context+0xa2/0xda
+[  976.171261]  ra : _copy_from_user+0x74/0xa4
+[  976.175516] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  976.179816]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  976.183874]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  976.187921]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  976.192093]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  976.196525]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  976.200453]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  976.204290]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  976.208010]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  976.212737]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  976.216567]  t5 : 0000000000000010 t6 : 0000000000040000
+[  976.220281] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  976.224347] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  976.228633] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  986.774913] rcu: INFO: rcu_sched self-detected stall on CPU
+[  986.779027] rcu: 	5-....: (146616 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=64007
+[  986.782926] 	(t=147326 jiffies g=22425 q=8807 ncpus=8)
+[  986.787387] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[  986.791724] Hardware name: riscv-virtio,qemu (DT)
+[  986.796927] epc : _save_context+0xa2/0xda
+[  986.804052]  ra : _copy_from_user+0x74/0xa4
+[  986.812045] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[  986.819466]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[  986.825348]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[  986.833923]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[  986.841250]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[  986.847971]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[  986.854028]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[  986.861444]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[  986.867871]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[  986.874217]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[  986.881331]  t5 : 0000000000000010 t6 : 0000000000040000
+[  986.887515] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  986.894365] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[  986.901344] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[  994.334954] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 148564 jiffies s: 4029 root: 0x20/.
+[  994.338641] rcu: blocking rcu_node structures (internal RCU debug):
+[  994.344108] Task dump for CPU 5:
+[  994.348363] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[  994.352825] Call Trace:
+[  994.356226] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1012.139521] watchdog: BUG: soft lockup - CPU#5 stuck for 574s! [trinity-c21:5492]
+[ 1012.143985] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1012.158957] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1012.163462] Hardware name: riscv-virtio,qemu (DT)
+[ 1012.167791] epc : _save_context+0xa2/0xda
+[ 1012.171770]  ra : _copy_from_user+0x74/0xa4
+[ 1012.174999] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1012.180214]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1012.184488]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1012.188119]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1012.191661]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1012.194936]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1012.199098]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1012.204500]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1012.208067]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1012.211985]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1012.215854]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1012.219054] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1012.223723] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1012.226864] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1040.140451] watchdog: BUG: soft lockup - CPU#5 stuck for 600s! [trinity-c21:5492]
+[ 1040.144564] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1040.161278] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1040.165062] Hardware name: riscv-virtio,qemu (DT)
+[ 1040.168832] epc : _save_context+0xa2/0xda
+[ 1040.172574]  ra : _copy_from_user+0x74/0xa4
+[ 1040.175922] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1040.180018]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1040.184812]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1040.188511]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1040.191920]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1040.195732]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1040.199514]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1040.203578]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1040.207202]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1040.211250]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1040.215183]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1040.218825] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1040.222833] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1040.226423] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1049.908720] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1049.913316] rcu: 	5-....: (162322 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=71884
+[ 1049.918114] 	(t=163109 jiffies g=22425 q=8965 ncpus=8)
+[ 1049.922134] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1049.926259] Hardware name: riscv-virtio,qemu (DT)
+[ 1049.932072] epc : _save_context+0xa2/0xda
+[ 1049.940004]  ra : _copy_from_user+0x74/0xa4
+[ 1049.947017] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1049.954120]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1049.960975]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1049.967871]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1049.975808]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1049.983345]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1049.989805]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1049.996126]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1050.003499]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1050.010292]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1050.018244]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1050.024575] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1050.033354] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1050.039824] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1057.825084] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 164436 jiffies s: 4029 root: 0x20/.
+[ 1057.830252] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1057.835550] Task dump for CPU 5:
+[ 1057.839287] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1057.844129] Call Trace:
+[ 1057.849375] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1076.141574] watchdog: BUG: soft lockup - CPU#5 stuck for 634s! [trinity-c21:5492]
+[ 1076.146669] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1076.164124] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1076.167910] Hardware name: riscv-virtio,qemu (DT)
+[ 1076.171452] epc : _save_context+0xa2/0xda
+[ 1076.175185]  ra : _copy_from_user+0x74/0xa4
+[ 1076.178758] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1076.182802]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1076.186406]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1076.190028]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1076.193909]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1076.197353]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1076.205130]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1076.210342]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1076.214216]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1076.217983]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1076.221428]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1076.226842] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1076.231271] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1076.237044] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1104.142479] watchdog: BUG: soft lockup - CPU#5 stuck for 660s! [trinity-c21:5492]
+[ 1104.146725] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1104.162881] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1104.167541] Hardware name: riscv-virtio,qemu (DT)
+[ 1104.171420] epc : _save_context+0xa2/0xda
+[ 1104.175423]  ra : _copy_from_user+0x74/0xa4
+[ 1104.179427] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1104.182976]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1104.186710]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1104.190713]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1104.194023]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1104.198811]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1104.202744]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1104.206300]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1104.211586]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1104.215535]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1104.219198]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1104.222865] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1104.227199] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1104.231264] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1113.058679] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1113.062673] rcu: 	5-....: (178028 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=79080
+[ 1113.067408] 	(t=178896 jiffies g=22425 q=9111 ncpus=8)
+[ 1113.071473] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1113.076035] Hardware name: riscv-virtio,qemu (DT)
+[ 1113.080422] epc : _save_context+0xa2/0xda
+[ 1113.086679]  ra : _copy_from_user+0x74/0xa4
+[ 1113.092534] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1113.099311]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1113.105749]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1113.112673]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1113.119373]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1113.126339]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1113.134994]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1113.141509]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1113.149719]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1113.156622]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1113.163004]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1113.169276] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1113.177197] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1113.183229] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1121.311149] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 180307 jiffies s: 4029 root: 0x20/.
+[ 1121.316250] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1121.321011] Task dump for CPU 5:
+[ 1121.325130] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1121.330654] Call Trace:
+[ 1121.336031] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1140.143494] watchdog: BUG: soft lockup - CPU#5 stuck for 693s! [trinity-c21:5492]
+[ 1140.146914] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1140.163962] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1140.167585] Hardware name: riscv-virtio,qemu (DT)
+[ 1140.172654] epc : _save_context+0xa2/0xda
+[ 1140.176587]  ra : _copy_from_user+0x74/0xa4
+[ 1140.180449] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1140.184298]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1140.187878]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1140.191070]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1140.194797]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1140.198548]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1140.202452]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1140.206026]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1140.210958]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1140.216181]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1140.219828]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1140.223190] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1140.228794] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1140.232745] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1168.144317] watchdog: BUG: soft lockup - CPU#5 stuck for 719s! [trinity-c21:5492]
+[ 1168.149250] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1168.165344] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1168.169572] Hardware name: riscv-virtio,qemu (DT)
+[ 1168.173538] epc : _save_context+0xa2/0xda
+[ 1168.177599]  ra : _copy_from_user+0x74/0xa4
+[ 1168.181695] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1168.185557]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1168.189663]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1168.193515]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1168.197200]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1168.200969]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1168.204653]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1168.208009]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1168.212815]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1168.217418]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1168.221383]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1168.224966] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1168.228665] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1168.231963] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1176.200687] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1176.204822] rcu: 	5-....: (193737 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=85430
+[ 1176.208276] 	(t=194680 jiffies g=22425 q=9257 ncpus=8)
+[ 1176.212272] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1176.217944] Hardware name: riscv-virtio,qemu (DT)
+[ 1176.222223] epc : _save_context+0xa2/0xda
+[ 1176.229188]  ra : _copy_from_user+0x74/0xa4
+[ 1176.235744] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1176.242292]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1176.248956]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1176.255792]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1176.263369]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1176.270912]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1176.277932]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1176.284967]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1176.291441]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1176.297753]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1176.305115]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1176.311650] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1176.320485] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1176.327425] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1184.805040] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 196180 jiffies s: 4029 root: 0x20/.
+[ 1184.809583] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1184.812529] Task dump for CPU 5:
+[ 1184.816436] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1184.822116] Call Trace:
+[ 1184.825263] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1204.145606] watchdog: BUG: soft lockup - CPU#5 stuck for 753s! [trinity-c21:5492]
+[ 1204.150178] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1204.165996] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1204.169932] Hardware name: riscv-virtio,qemu (DT)
+[ 1204.173158] epc : _save_context+0xa2/0xda
+[ 1204.176819]  ra : _copy_from_user+0x74/0xa4
+[ 1204.180550] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1204.183992]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1204.187618]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1204.191224]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1204.194801]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1204.198207]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1204.201892]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1204.206000]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1204.209654]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1204.213855]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1204.217383]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1204.221823] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1204.225848] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1204.229020] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1232.146168] watchdog: BUG: soft lockup - CPU#5 stuck for 779s! [trinity-c21:5492]
+[ 1232.151294] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1232.167188] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1232.171101] Hardware name: riscv-virtio,qemu (DT)
+[ 1232.174981] epc : _save_context+0xa2/0xda
+[ 1232.178719]  ra : _copy_from_user+0x74/0xa4
+[ 1232.181914] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1232.186537]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1232.190870]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1232.194520]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1232.198899]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1232.203183]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1232.206963]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1232.210777]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1232.214712]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1232.218019]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1232.223057]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1232.226849] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1232.230672] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1232.234581] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1239.350637] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1239.355189] rcu: 	5-....: (209448 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=91822
+[ 1239.359125] 	(t=210468 jiffies g=22425 q=9927 ncpus=8)
+[ 1239.363422] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1239.367669] Hardware name: riscv-virtio,qemu (DT)
+[ 1239.371289] epc : _save_context+0xa2/0xda
+[ 1239.375116]  ra : _copy_from_user+0x74/0xa4
+[ 1239.382100] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1239.389163]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1239.396028]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1239.401847]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1239.408462]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1239.416410]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1239.423767]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1239.430698]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1239.438021]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1239.446138]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1239.453240]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1239.459965] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1239.467352] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1239.473909] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1248.291009] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 212051 jiffies s: 4029 root: 0x20/.
+[ 1248.294513] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1248.298892] Task dump for CPU 5:
+[ 1248.301932] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1248.306042] Call Trace:
+[ 1248.309192] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1264.147138] watchdog: BUG: soft lockup - CPU#5 stuck for 809s! [trinity-c21:5492]
+[ 1264.151593] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1264.167645] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1264.171712] Hardware name: riscv-virtio,qemu (DT)
+[ 1264.174888] epc : _save_context+0xa2/0xda
+[ 1264.178659]  ra : _copy_from_user+0x74/0xa4
+[ 1264.182253] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1264.185947]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1264.189727]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1264.193247]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1264.196614]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1264.200362]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1264.204035]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1264.207644]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1264.210801]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1264.214694]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1264.218348]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1264.222075] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1264.225775] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1264.229664] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1292.148122] watchdog: BUG: soft lockup - CPU#5 stuck for 835s! [trinity-c21:5492]
+[ 1292.151668] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1292.169970] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1292.174249] Hardware name: riscv-virtio,qemu (DT)
+[ 1292.177862] epc : _save_context+0xa2/0xda
+[ 1292.181835]  ra : _copy_from_user+0x74/0xa4
+[ 1292.185484] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1292.189223]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1292.193360]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1292.197485]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1292.201770]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1292.206198]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1292.211155]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1292.215081]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1292.218858]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1292.222657]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1292.226456]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1292.230180] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1292.233915] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1292.238030] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1302.492368] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1302.496763] rcu: 	5-....: (225157 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=98164
+[ 1302.501229] 	(t=226253 jiffies g=22425 q=14247 ncpus=8)
+[ 1302.505631] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1302.510049] Hardware name: riscv-virtio,qemu (DT)
+[ 1302.515197] epc : _save_context+0xa2/0xda
+[ 1302.523971]  ra : _copy_from_user+0x74/0xa4
+[ 1302.532052] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1302.540090]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1302.547397]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1302.554918]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1302.565424]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1302.573430]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1302.579996]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1302.589104]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1302.597051]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1302.606203]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1302.615063]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1302.623393] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1302.630786] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1302.638967] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1311.784646] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 227924 jiffies s: 4029 root: 0x20/.
+[ 1311.788702] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1311.792279] Task dump for CPU 5:
+[ 1311.796232] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1311.801544] Call Trace:
+[ 1311.804264] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1328.149132] watchdog: BUG: soft lockup - CPU#5 stuck for 868s! [trinity-c21:5492]
+[ 1328.152590] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1328.168137] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1328.171814] Hardware name: riscv-virtio,qemu (DT)
+[ 1328.175882] epc : _save_context+0xa2/0xda
+[ 1328.179456]  ra : _copy_from_user+0x74/0xa4
+[ 1328.182962] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1328.187888]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1328.192579]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1328.196236]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1328.199727]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1328.203234]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1328.207092]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1328.211041]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1328.214918]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1328.218827]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1328.222294]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1328.227095] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1328.230786] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1328.234715] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1356.149908] watchdog: BUG: soft lockup - CPU#5 stuck for 895s! [trinity-c21:5492]
+[ 1356.153952] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1356.170580] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1356.175523] Hardware name: riscv-virtio,qemu (DT)
+[ 1356.180293] epc : _save_context+0xa2/0xda
+[ 1356.184342]  ra : _copy_from_user+0x74/0xa4
+[ 1356.187843] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1356.192048]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1356.196646]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1356.201006]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1356.204804]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1356.208994]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1356.213118]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1356.216775]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1356.221159]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1356.225046]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1356.229091]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1356.232921] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1356.236872] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1356.240784] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1365.658198] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1365.662395] rcu: 	5-....: (240866 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=104516
+[ 1365.665843] 	(t=242043 jiffies g=22425 q=14268 ncpus=8)
+[ 1365.670751] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1365.675096] Hardware name: riscv-virtio,qemu (DT)
+[ 1365.679006] epc : _save_context+0xa2/0xda
+[ 1365.682438]  ra : _copy_from_user+0x74/0xa4
+[ 1365.688442] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1365.695800]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1365.702698]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1365.709318]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1365.716345]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1365.723972]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1365.731088]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1365.737460]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1365.744586]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1365.751307]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1365.758815]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1365.765405] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1365.772776] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1365.779422] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1375.270415] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 243795 jiffies s: 4029 root: 0x20/.
+[ 1375.276038] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1375.280000] Task dump for CPU 5:
+[ 1375.283251] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1375.287084] Call Trace:
+[ 1375.290052] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1392.151012] watchdog: BUG: soft lockup - CPU#5 stuck for 928s! [trinity-c21:5492]
+[ 1392.154343] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1392.170533] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1392.176668] Hardware name: riscv-virtio,qemu (DT)
+[ 1392.180518] epc : _save_context+0xa2/0xda
+[ 1392.184175]  ra : _copy_from_user+0x74/0xa4
+[ 1392.188308] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1392.192375]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1392.196651]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1392.200809]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1392.204355]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1392.208431]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1392.212517]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1392.216541]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1392.220175]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1392.223761]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1392.227524]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1392.231736] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1392.235538] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1392.239534] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1420.151724] watchdog: BUG: soft lockup - CPU#5 stuck for 954s! [trinity-c21:5492]
+[ 1420.155193] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1420.171240] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1420.176657] Hardware name: riscv-virtio,qemu (DT)
+[ 1420.180482] epc : _save_context+0xa2/0xda
+[ 1420.184102]  ra : _copy_from_user+0x74/0xa4
+[ 1420.187393] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1420.192982]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1420.197284]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1420.201245]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1420.204828]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1420.208685]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1420.212720]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1420.216855]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1420.220590]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1420.224489]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1420.228685]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1420.232693] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1420.236674] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1420.240590] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1428.803968] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1428.807421] rcu: 	5-....: (256574 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=110816
+[ 1428.812002] 	(t=257830 jiffies g=22425 q=14466 ncpus=8)
+[ 1428.816178] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1428.820534] Hardware name: riscv-virtio,qemu (DT)
+[ 1428.824083] epc : _save_context+0xa2/0xda
+[ 1428.830697]  ra : _copy_from_user+0x74/0xa4
+[ 1428.837645] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1428.843942]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1428.851037]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1428.857774]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1428.865270]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1428.871627]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1428.880285]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1428.888108]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1428.895632]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1428.903088]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1428.910441]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1428.917286] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1428.924689] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1428.930895] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1438.764267] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 259668 jiffies s: 4029 root: 0x20/.
+[ 1438.768595] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1438.771593] Task dump for CPU 5:
+[ 1438.774883] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1438.778885] Call Trace:
+[ 1438.782471] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1456.152854] watchdog: BUG: soft lockup - CPU#5 stuck for 988s! [trinity-c21:5492]
+[ 1456.156320] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1456.172237] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1456.176718] Hardware name: riscv-virtio,qemu (DT)
+[ 1456.181456] epc : _save_context+0xa2/0xda
+[ 1456.185659]  ra : _copy_from_user+0x74/0xa4
+[ 1456.189360] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1456.192878]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1456.196232]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1456.201314]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1456.205048]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1456.208305]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1456.213407]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1456.217537]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1456.221361]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1456.224920]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1456.229198]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1456.233263] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1456.237087] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1456.240399] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1484.153512] watchdog: BUG: soft lockup - CPU#5 stuck for 1014s! [trinity-c21:5492]
+[ 1484.159052] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1484.176669] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1484.180959] Hardware name: riscv-virtio,qemu (DT)
+[ 1484.185538] epc : _save_context+0xa2/0xda
+[ 1484.189053]  ra : _copy_from_user+0x74/0xa4
+[ 1484.193062] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1484.197822]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1484.202049]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1484.205918]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1484.210144]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1484.214503]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1484.218572]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1484.222445]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1484.226249]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1484.230169]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1484.234601]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1484.238622] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1484.242705] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1484.247331] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1491.953644] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1491.957251] rcu: 	5-....: (272282 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=117081
+[ 1491.961155] 	(t=273616 jiffies g=22425 q=14475 ncpus=8)
+[ 1491.965156] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1491.969092] Hardware name: riscv-virtio,qemu (DT)
+[ 1491.975606] epc : _save_context+0xa2/0xda
+[ 1491.982209]  ra : _copy_from_user+0x74/0xa4
+[ 1491.988631] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1491.995015]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1492.001614]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1492.008864]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1492.015885]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1492.023150]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1492.031151]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1492.038218]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1492.045896]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1492.052914]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1492.059836]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1492.066851] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1492.074084] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1492.080797] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1502.250100] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 275539 jiffies s: 4029 root: 0x20/.
+[ 1502.254737] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1502.258265] Task dump for CPU 5:
+[ 1502.262149] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1502.265672] Call Trace:
+[ 1502.269070] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1516.154354] watchdog: BUG: soft lockup - CPU#5 stuck for 1044s! [trinity-c21:5492]
+[ 1516.157810] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1516.172801] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1516.176473] Hardware name: riscv-virtio,qemu (DT)
+[ 1516.179982] epc : _save_context+0xa2/0xda
+[ 1516.183671]  ra : _copy_from_user+0x74/0xa4
+[ 1516.187646] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1516.191165]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1516.194754]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1516.198929]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1516.202740]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1516.206049]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1516.210709]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1516.214047]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1516.219025]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1516.222856]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1516.227363]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1516.231769] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1516.236134] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1516.239821] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1544.155134] watchdog: BUG: soft lockup - CPU#5 stuck for 1070s! [trinity-c21:5492]
+[ 1544.159665] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1544.175360] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1544.179609] Hardware name: riscv-virtio,qemu (DT)
+[ 1544.183375] epc : _save_context+0xa2/0xda
+[ 1544.187206]  ra : _copy_from_user+0x74/0xa4
+[ 1544.190848] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1544.195708]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1544.200018]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1544.203850]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1544.207722]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1544.212409]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1544.216563]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1544.220547]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1544.224590]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1544.228550]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1544.232381]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1544.236639] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1544.240595] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1544.244445] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1555.099441] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1555.104214] rcu: 	5-....: (287991 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=123379
+[ 1555.108149] 	(t=289403 jiffies g=22425 q=14483 ncpus=8)
+[ 1555.112310] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1555.116723] Hardware name: riscv-virtio,qemu (DT)
+[ 1555.120911] epc : _save_context+0xa2/0xda
+[ 1555.127053]  ra : _copy_from_user+0x74/0xa4
+[ 1555.133631] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1555.140881]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1555.147812]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1555.156379]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1555.163846]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1555.170449]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1555.178317]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1555.186277]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1555.193176]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1555.199869]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1555.206267]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1555.213353] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1555.221057] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1555.227355] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1565.739837] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 291411 jiffies s: 4029 root: 0x20/.
+[ 1565.744646] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1565.748077] Task dump for CPU 5:
+[ 1565.751413] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1565.756090] Call Trace:
+[ 1565.758901] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1580.156096] watchdog: BUG: soft lockup - CPU#5 stuck for 1103s! [trinity-c21:5492]
+[ 1580.159645] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1580.175495] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1580.179034] Hardware name: riscv-virtio,qemu (DT)
+[ 1580.182614] epc : _save_context+0xa2/0xda
+[ 1580.186151]  ra : _copy_from_user+0x74/0xa4
+[ 1580.189627] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1580.193240]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1580.197118]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1580.200837]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1580.204396]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1580.207617]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1580.211113]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1580.214763]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1580.218508]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1580.222401]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1580.226322]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1580.229920] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1580.233613] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1580.237184] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1608.156835] watchdog: BUG: soft lockup - CPU#5 stuck for 1129s! [trinity-c21:5492]
+[ 1608.161794] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1608.177695] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1608.181699] Hardware name: riscv-virtio,qemu (DT)
+[ 1608.185672] epc : _save_context+0xa2/0xda
+[ 1608.189831]  ra : _copy_from_user+0x74/0xa4
+[ 1608.193318] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1608.196655]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1608.202167]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1608.205871]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1608.209660]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1608.213635]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1608.217693]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1608.221605]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1608.225500]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1608.229678]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1608.233489]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1608.237135] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1608.240553] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1608.244655] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1618.245232] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1618.248730] rcu: 	5-....: (303701 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=129698
+[ 1618.254215] 	(t=305189 jiffies g=22425 q=14489 ncpus=8)
+[ 1618.258238] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1618.262045] Hardware name: riscv-virtio,qemu (DT)
+[ 1618.265605] epc : _save_context+0xa2/0xda
+[ 1618.268927]  ra : _copy_from_user+0x74/0xa4
+[ 1618.275806] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1618.282322]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1618.288727]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1618.294951]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1618.301852]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1618.308267]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1618.315119]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1618.322664]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1618.330173]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1618.336573]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1618.344274]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1618.351071] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1618.358812] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1618.365365] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1629.229643] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 307283 jiffies s: 4029 root: 0x20/.
+[ 1629.233889] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1629.238184] Task dump for CPU 5:
+[ 1629.241005] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1629.245945] Call Trace:
+[ 1629.248691] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1644.157784] watchdog: BUG: soft lockup - CPU#5 stuck for 1163s! [trinity-c21:5492]
+[ 1644.162409] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1644.177957] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1644.181546] Hardware name: riscv-virtio,qemu (DT)
+[ 1644.185420] epc : _save_context+0xa2/0xda
+[ 1644.189665]  ra : _copy_from_user+0x74/0xa4
+[ 1644.194207] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1644.197491]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1644.202708]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1644.206670]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1644.210451]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1644.214464]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1644.218170]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1644.221419]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1644.225535]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1644.229552]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1644.234217]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1644.237595] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1644.243153] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1644.247099] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1672.158653] watchdog: BUG: soft lockup - CPU#5 stuck for 1189s! [trinity-c21:5492]
+[ 1672.163923] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1672.181614] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1672.185554] Hardware name: riscv-virtio,qemu (DT)
+[ 1672.189700] epc : _save_context+0xa2/0xda
+[ 1672.193865]  ra : _copy_from_user+0x74/0xa4
+[ 1672.197717] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1672.201728]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1672.205712]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1672.209907]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1672.214284]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1672.218886]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1672.223453]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1672.227306]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1672.231092]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1672.234796]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1672.239081]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1672.243521] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1672.247783] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1672.251877] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1681.382920] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1681.386390] rcu: 	5-....: (319408 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=136035
+[ 1681.390597] 	(t=320972 jiffies g=22425 q=14494 ncpus=8)
+[ 1681.395637] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1681.399770] Hardware name: riscv-virtio,qemu (DT)
+[ 1681.403316] epc : _save_context+0xa2/0xda
+[ 1681.407787]  ra : _copy_from_user+0x74/0xa4
+[ 1681.414522] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1681.421955]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1681.429393]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1681.437519]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1681.445163]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1681.451892]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1681.460076]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1681.466546]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1681.473870]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1681.480585]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1681.486556]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1681.495264] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1681.502509] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1681.510234] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1692.723264] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 323156 jiffies s: 4029 root: 0x20/.
+[ 1692.727298] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1692.730801] Task dump for CPU 5:
+[ 1692.733976] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1692.738307] Call Trace:
+[ 1692.742082] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1708.159586] watchdog: BUG: soft lockup - CPU#5 stuck for 1222s! [trinity-c21:5492]
+[ 1708.164353] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1708.180239] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1708.183944] Hardware name: riscv-virtio,qemu (DT)
+[ 1708.187349] epc : _save_context+0xa2/0xda
+[ 1708.192481]  ra : _copy_from_user+0x74/0xa4
+[ 1708.196006] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1708.199213]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1708.202686]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1708.206260]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1708.209932]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1708.213848]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1708.217685]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1708.221228]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1708.224789]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1708.228657]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1708.232174]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1708.235676] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1708.240393] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1708.244141] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1736.160481] watchdog: BUG: soft lockup - CPU#5 stuck for 1248s! [trinity-c21:5492]
+[ 1736.164506] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1736.182404] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1736.186808] Hardware name: riscv-virtio,qemu (DT)
+[ 1736.191069] epc : _save_context+0xa2/0xda
+[ 1736.195940]  ra : _copy_from_user+0x74/0xa4
+[ 1736.199684] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1736.203371]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1736.207303]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1736.212725]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1736.216334]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1736.221267]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1736.225234]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1736.229523]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1736.233399]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1736.237330]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1736.241966]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1736.245826] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1736.249537] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1736.253366] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1744.528739] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1744.533604] rcu: 	5-....: (335117 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=142356
+[ 1744.538157] 	(t=336759 jiffies g=22425 q=14500 ncpus=8)
+[ 1744.541807] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1744.545617] Hardware name: riscv-virtio,qemu (DT)
+[ 1744.549202] epc : _save_context+0xa2/0xda
+[ 1744.552943]  ra : _copy_from_user+0x74/0xa4
+[ 1744.559750] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1744.566938]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1744.573727]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1744.580147]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1744.586886]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1744.593588]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1744.599554]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1744.609166]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1744.616978]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1744.623552]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1744.631992]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1744.640904] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1744.648168] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1744.655705] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1756.213310] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 5-.... } 339028 jiffies s: 4029 root: 0x20/.
+[ 1756.217612] rcu: blocking rcu_node structures (internal RCU debug):
+[ 1756.220648] Task dump for CPU 5:
+[ 1756.224070] task:trinity-c21     state:R  running task     stack:0     pid:5492  ppid:561    flags:0x0000000c
+[ 1756.228053] Call Trace:
+[ 1756.231490] [<ffffffff80b27010>] __schedule+0x250/0x6a0
+[ 1772.161368] watchdog: BUG: soft lockup - CPU#5 stuck for 1282s! [trinity-c21:5492]
+[ 1772.166651] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1772.189588] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1772.195592] Hardware name: riscv-virtio,qemu (DT)
+[ 1772.200746] epc : _save_context+0xa2/0xda
+[ 1772.205392]  ra : _copy_from_user+0x74/0xa4
+[ 1772.210766] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1772.215034]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1772.219915]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1772.224855]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1772.230602]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1772.235571]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1772.240653]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1772.246079]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1772.251079]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1772.256357]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1772.261663]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1772.266032] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1772.270501] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1772.276473] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1800.162121] watchdog: BUG: soft lockup - CPU#5 stuck for 1308s! [trinity-c21:5492]
+[ 1800.166492] Modules linked in: bridge stp llc ieee802154_socket ieee802154 vsock_loopback vmw_vsock_virtio_transport_common vsock af_key can_bcm can_raw can pptp gre l2tp_ppp l2tp_netlink l2tp_core pppoe pppox ppp_generic slhc ib_core nfnetlink scsi_transport_iscsi xfrm_user xfrm_algo atm sctp ip6_udp_tunnel udp_tunnel libcrc32c rfkill ofpart cmdlinepart virtio_gpu cfi_cmdset_0001 virtio_dma_buf drm_shmem_helper cfi_probe cfi_util gen_probe drm_kms_helper physmap chipreg syscopyarea sysfillrect sysimgblt fb_sys_fops mtd uio_pdrv_genirq uio drm fuse sch_fq_codel i2c_core backlight
+[ 1800.182348] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1800.186630] Hardware name: riscv-virtio,qemu (DT)
+[ 1800.190238] epc : _save_context+0xa2/0xda
+[ 1800.193743]  ra : _copy_from_user+0x74/0xa4
+[ 1800.197377] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1800.201361]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1800.205167]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1800.208881]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1800.213492]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1800.217199]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1800.221255]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1800.224879]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1800.228749]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1800.232596]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1800.236967]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1800.240635] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1800.244366] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1800.248012] [<ffffffff80588326>] _copy_from_user+0x74/0xa4
+[ 1807.674285] rcu: INFO: rcu_sched self-detected stall on CPU
+[ 1807.680447] rcu: 	5-....: (350819 ticks this GP) idle=0d04/1/0x4000000000000002 softirq=11234/11234 fqs=148613
+[ 1807.686452] 	(t=352546 jiffies g=22425 q=14649 ncpus=8)
+[ 1807.692290] CPU: 5 PID: 5492 Comm: trinity-c21 Tainted: G             L     6.1.19-0.0.0.0.oe2303.riscv64 #1
+[ 1807.699805] Hardware name: riscv-virtio,qemu (DT)
+[ 1807.709016] epc : _save_context+0xa2/0xda
+[ 1807.719352]  ra : _copy_from_user+0x74/0xa4
+[ 1807.729064] epc : ffffffff80003d0c ra : ffffffff80588326 sp : ff20000010d5bcf0
+[ 1807.738840]  gp : ffffffff81c3b700 tp : ff6000008e684240 t0 : 0000000000000003
+[ 1807.749130]  t1 : 0000000000000004 t2 : 0000000000000020 s0 : ff20000010d5be10
+[ 1807.760496]  s1 : 0000000200040120 a0 : ff20000010d5be48 a1 : 00ffffffb5500000
+[ 1807.771126]  a2 : 0000000000000010 a3 : 0000000000000048 a4 : 00fffffffffffff0
+[ 1807.782121]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 0000000000000004
+[ 1807.796496]  s2 : ffffffff80b10a9e s3 : 00ffffffb5500000 s4 : 000000000000000d
+[ 1807.808586]  s5 : ff6000008e684240 s6 : 00ffffffb6681000 s7 : 0000000000000000
+[ 1807.819297]  s8 : 000000000000000e s9 : 00ffffffb6687380 s10: 0000000000000020
+[ 1807.830045]  s11: 00aaaaaab48371b0 t3 : 00ffffffb6ed7554 t4 : 0000000000000000
+[ 1807.842632]  t5 : 0000000000000010 t6 : 0000000000040000
+[ 1807.852669] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[ 1807.865341] [<ffffffff80003d0c>] _save_context+0xa2/0xda
+[ 1807.876678] [<ffffffff80588326>] _copy_from_user+0x74/0xa4

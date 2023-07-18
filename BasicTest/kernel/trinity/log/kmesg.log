@@ -1,0 +1,103 @@
+[77362.117320] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 0-.... } 16798083 jiffies s: 2861 root: 0x1/.
+[77362.118935] rcu: blocking rcu_node structures (internal RCU debug):
+[77362.120114] Task dump for CPU 0:
+[77362.120657] task:trinity-c4      state:R  running task     stack:0     pid:10628 ppid:1      flags:0x0000000c
+[77362.123517] Call Trace:
+[77362.124038] [<ffffffff8088fb14>] __schedule+0x25e/0x646
+[77362.124945] [<ffffffff80092c54>] sys_gettimeofday+0x112/0x148
+[77362.126115] [<ffffffff80003a7a>] ret_from_syscall+0x0/0x2
+[77368.093174] watchdog: BUG: soft lockup - CPU#0 stuck for 62611s! [trinity-c4:10628]
+[77368.094152] Modules linked in: 8021q nfnetlink xfrm_user xfrm_algo snd_usb_audio snd_hwdep snd_usbmidi_lib snd_rawmidi snd_pcm snd_timer snd soundcore virtio_gpu virtio_dma_buf drm_shmem_helper drm_kms_helper cfbfillrect syscopyarea cfbimgblt sysfillrect sysimgblt fb_sys_fops cfbcopyarea drm i2c_core drm_panel_orientation_quirks backlight fuse
+[77368.098826] CPU: 0 PID: 10628 Comm: trinity-c4 Tainted: G             L     6.1.19-2.oe2303.riscv64 #1
+[77368.099960] Hardware name: riscv-virtio,qemu (DT)
+[77368.100596] epc : do_page_fault+0x5e/0x3ac
+[77368.101572]  ra : ret_from_exception+0x0/0x16
+[77368.102236] epc : ffffffff80009f96 ra : ffffffff80003a88 sp : ff20000014103ce0
+[77368.103217]  gp : ffffffff815db148 tp : ff6000000b339700 t0 : ffffffff80009f38
+[77368.104026]  t1 : ffffffff80e00210 t2 : ffffffff80e00290 s0 : ff20000014103d40
+[77368.104901]  s1 : ff20000014103d40 a0 : ff20000014103d40 a1 : ffffffff815de649
+[77368.106019]  a2 : 0000000000000008 a3 : ffffffff815da998 a4 : ff60000000000000
+[77368.106951]  a5 : 0000000000000001 a6 : 00000000000000ac a7 : 00000000000000a9
+[77368.107852]  s2 : 00ffffff8f981000 s3 : 000000000000000f s4 : ff60000015e20d80
+[77368.108609]  s5 : ff6000000b339700 s6 : 00ffffff8ff49000 s7 : 0000000000000000
+[77368.110122]  s8 : 000000000000000e s9 : 00ffffff8ff4f380 s10: 0000000000000008
+[77368.111143]  s11: 00aaaaaae6024fb0 t3 : 00ffffff90721554 t4 : 0000000000000000
+[77368.111972]  t5 : 0000000000000008 t6 : 0000000000040000
+[77368.112501] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[77368.113860] [<ffffffff80009f96>] do_page_fault+0x5e/0x3ac
+[77368.114603] [<ffffffff80003a88>] ret_from_exception+0x0/0x16
+[77368.115459] [<ffffffff80470720>] _copy_to_user+0x28/0x7a
+[77396.093230] watchdog: BUG: soft lockup - CPU#0 stuck for 62637s! [trinity-c4:10628]
+[77396.094404] Modules linked in: 8021q nfnetlink xfrm_user xfrm_algo snd_usb_audio snd_hwdep snd_usbmidi_lib snd_rawmidi snd_pcm snd_timer snd soundcore virtio_gpu virtio_dma_buf drm_shmem_helper drm_kms_helper cfbfillrect syscopyarea cfbimgblt sysfillrect sysimgblt fb_sys_fops cfbcopyarea drm i2c_core drm_panel_orientation_quirks backlight fuse
+[77396.100218] CPU: 0 PID: 10628 Comm: trinity-c4 Tainted: G             L     6.1.19-2.oe2303.riscv64 #1
+[77396.101788] Hardware name: riscv-virtio,qemu (DT)
+[77396.102558] epc : __handle_mm_fault+0x150/0xb4c
+[77396.103294]  ra : handle_mm_fault+0xe4/0x1cc
+[77396.103984] epc : ffffffff8019f706 ra : ffffffff801a01e6 sp : ff20000014103bd0
+[77396.104974]  gp : ffffffff815db148 tp : ff6000000b339700 t0 : 0000000000000003
+[77396.106165]  t1 : 0000000000000000 t2 : 0000000000000002 s0 : ff20000014103ca0
+[77396.107148]  s1 : ff6000002cc2d3e0 a0 : 0000000000000000 a1 : 00000000000003e0
+[77396.108156]  a2 : 0000000000000215 a3 : 0000000000000040 a4 : ff5fffff7fe00000
+[77396.109600]  a5 : 0000000022d64001 a6 : ffffffff801a0102 a7 : 0000000000000018
+[77396.110692]  s2 : ffffffff8104eca8 s3 : ff60000015ffe2a8 s4 : 0000000000000215
+[77396.111661]  s5 : ffffffff815de0a8 s6 : 00000000040600fe s7 : ff60000015e20d80
+[77396.112641]  s8 : ffffffff815da999 s9 : 0000000000000001 s10: 0000000000000008
+[77396.114165]  s11: 00aaaaaae6024fb0 t3 : 00ffffff8f981000 t4 : ff60000015ffcd0c
+[77396.115194]  t5 : 00ffffff8f634000 t6 : 00ffffff8fe33fff
+[77396.116076] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[77396.116979] [<ffffffff8019f706>] __handle_mm_fault+0x150/0xb4c
+[77396.117934] [<ffffffff801a01e6>] handle_mm_fault+0xe4/0x1cc
+[77396.118769] [<ffffffff8000a05e>] do_page_fault+0x126/0x3ac
+[77396.119591] [<ffffffff80003a88>] ret_from_exception+0x0/0x16
+[77396.120401] [<ffffffff80470720>] _copy_to_user+0x28/0x7a
+[77406.589212] rcu: INFO: rcu_sched self-detected stall on CPU
+[77406.590330] rcu: 	0-....: (16798951 ticks this GP) idle=bbe4/1/0x4000000000000002 softirq=290606/290606 fqs=8403950
+[77406.591739] 	(t=16815897 jiffies g=617857 q=28859 ncpus=2)
+[77406.592552] CPU: 0 PID: 10628 Comm: trinity-c4 Tainted: G             L     6.1.19-2.oe2303.riscv64 #1
+[77406.594327] Hardware name: riscv-virtio,qemu (DT)
+[77406.595081] epc : up_read+0x0/0x1cc
+[77406.595677]  ra : do_page_fault+0x146/0x3ac
+[77406.596345] epc : ffffffff8006b53a ra : ffffffff8000a07e sp : ff20000014103ce0
+[77406.597148]  gp : ffffffff815db148 tp : ff6000000b339700 t0 : 0000000000000003
+[77406.598570]  t1 : 0000000000000000 t2 : 0000000000000002 s0 : ff20000014103d40
+[77406.599648]  s1 : ff20000014103d40 a0 : ff60000015e20e08 a1 : ff20000014103d40
+[77406.600609]  a2 : ff600000bf19b000 a3 : 61c8864680b583eb a4 : 0000000000004000
+[77406.602173]  a5 : 0000000000000000 a6 : ffffffff801a0102 a7 : 0000000000000018
+[77406.603845]  s2 : 00ffffff8f981000 s3 : 000000000000000f s4 : ff60000015e20d80
+[77406.605591]  s5 : ff6000000b339700 s6 : 0000000000000000 s7 : ff60000015e20e08
+[77406.607636]  s8 : 0000000000000215 s9 : 0000000000000001 s10: 0000000000000008
+[77406.609475]  s11: 00aaaaaae6024fb0 t3 : 00ffffff8f981000 t4 : ff60000015ffcd0c
+[77406.611323]  t5 : 00ffffff8f634000 t6 : 00ffffff8fe33fff
+[77406.612574] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[77406.614496] [<ffffffff8006b53a>] up_read+0x0/0x1cc
+[77406.615775] [<ffffffff80003a88>] ret_from_exception+0x0/0x16
+[77406.617457] [<ffffffff80470720>] _copy_to_user+0x28/0x7a
+[77425.605309] rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 0-.... } 16813955 jiffies s: 2861 root: 0x1/.
+[77425.606734] rcu: blocking rcu_node structures (internal RCU debug):
+[77425.607745] Task dump for CPU 0:
+[77425.608275] task:trinity-c4      state:R  running task     stack:0     pid:10628 ppid:1      flags:0x0000000c
+[77425.610299] Call Trace:
+[77425.610773] [<ffffffff8088fb14>] __schedule+0x25e/0x646
+[77425.611393] [<ffffffff80092c54>] sys_gettimeofday+0x112/0x148
+[77425.612084] [<ffffffff80003a7a>] ret_from_syscall+0x0/0x2
+[77432.093055] watchdog: BUG: soft lockup - CPU#0 stuck for 62671s! [trinity-c4:10628]
+[77432.094000] Modules linked in: 8021q nfnetlink xfrm_user xfrm_algo snd_usb_audio snd_hwdep snd_usbmidi_lib snd_rawmidi snd_pcm snd_timer snd soundcore virtio_gpu virtio_dma_buf drm_shmem_helper drm_kms_helper cfbfillrect syscopyarea cfbimgblt sysfillrect sysimgblt fb_sys_fops cfbcopyarea drm i2c_core drm_panel_orientation_quirks backlight fuse
+[77432.098609] CPU: 0 PID: 10628 Comm: trinity-c4 Tainted: G             L     6.1.19-2.oe2303.riscv64 #1
+[77432.099914] Hardware name: riscv-virtio,qemu (DT)
+[77432.100630] epc : do_page_fault+0x1fc/0x3ac
+[77432.101383]  ra : ret_from_exception+0x0/0x16
+[77432.102189] epc : ffffffff8000a134 ra : ffffffff80003a88 sp : ff20000014103ce0
+[77432.102981]  gp : ffffffff815db148 tp : ff6000000b339700 t0 : ffffffff80009f38
+[77432.103784]  t1 : ffffffff80e00210 t2 : ffffffff80e00290 s0 : ff20000014103d40
+[77432.104661]  s1 : ff20000014103d40 a0 : ff20000014103d40 a1 : ffffffff815de649
+[77432.105717]  a2 : 0100000000000000 a3 : ffffffff815da998 a4 : 0000000000040000
+[77432.106673]  a5 : 0000000000040000 a6 : 00000000000000ac a7 : 00000000000000a9
+[77432.107440]  s2 : 00ffffff8f981000 s3 : 000000000000000f s4 : ff60000015e20d80
+[77432.108278]  s5 : ff6000000b339700 s6 : 00ffffff8ff49000 s7 : 0000000000000000
+[77432.109473]  s8 : 0000000000000214 s9 : 00ffffff8ff4f380 s10: 0000000000000008
+[77432.110353]  s11: 00aaaaaae6024fb0 t3 : 00ffffff90721554 t4 : 0000000000000000
+[77432.111103]  t5 : 0000000000000008 t6 : 0000000000040000
+[77432.111659] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[77432.112743] [<ffffffff8000a134>] do_page_fault+0x1fc/0x3ac
+[77432.113803] [<ffffffff80003a88>] ret_from_exception+0x0/0x16
+[77432.114676] [<ffffffff80470720>] _copy_to_user+0x28/0x7a
