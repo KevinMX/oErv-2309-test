@@ -1,0 +1,2259 @@
+peneuler-riscv64 ~]$ sudo dnf install -y lmbench libtirpc libtirpc-devel
+cp -R /opt/lmbench .
+sudo chown -R openeuler:openeuler lmbench
+wget https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
+cp -f config.guess lmbench/scripts/gnu-os
+cd lmbench
+make -j$(nproc)
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for openeuler:
+hw                                                                                                                                                   351 kB/s | 1.2 MB     00:03
+mainline                                                                                                                                             1.2 MB/s |  19 MB     00:16
+epol                                                                                                                                                 1.0 MB/s | 4.9 MB     00:04
+ceph-user                                                                                                                                             37 kB/s |  72 kB     00:01
+chromium-user                                                                                                                                        3.6 kB/s | 6.8 kB     00:01
+libreoffice                                                                                                                                          384 kB/s | 918 kB     00:02
+rust167-user                                                                                                                                          99 kB/s | 203 kB     00:02
+mesa-supplements                                                                                                                                     4.6 kB/s | 8.6 kB     00:01
+oetestsuite                                                                                                                                          1.0 kB/s | 1.9 kB     00:01
+update                                                                                                                                               139  B/s | 257  B     00:01
+Last metadata expiration check: 0:00:01 ago on Sun 30 Apr 2023 01:07:27 AM CST.
+Package libtirpc-1.3.3-2.oe2303.riscv64 is already installed.
+Dependencies resolved.
+=====================================================================================================================================================================================
+ Package                                       Architecture                           Version                                          Repository                               Size
+=====================================================================================================================================================================================
+Installing:
+ libtirpc-devel                                riscv64                                1.3.3-2.oe2303                                   mainline                                 46 k
+ lmbench                                       riscv64                                3-4.oe2303                                       mainline                                578 k
+
+Transaction Summary
+=====================================================================================================================================================================================
+Install  2 Packages
+
+Total download size: 624 k
+Installed size: 3.7 M
+Downloading Packages:
+(1/2): libtirpc-devel-1.3.3-2.oe2303.riscv64.rpm                                                                                                      38 kB/s |  46 kB     00:01
+(2/2): lmbench-3-4.oe2303.riscv64.rpm                                                                                                                358 kB/s | 578 kB     00:01
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                375 kB/s | 624 kB     00:01
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                             1/1
+  Running scriptlet: lmbench-3-4.oe2303.riscv64                                                                                                                                  1/2
+  Installing       : lmbench-3-4.oe2303.riscv64                                                                                                                                  1/2
+  Running scriptlet: lmbench-3-4.oe2303.riscv64                                                                                                                                  1/2
+  Installing       : libtirpc-devel-1.3.3-2.oe2303.riscv64                                                                                                                       2/2
+  Running scriptlet: libtirpc-devel-1.3.3-2.oe2303.riscv64                                                                                                                       2/2
+  Verifying        : libtirpc-devel-1.3.3-2.oe2303.riscv64                                                                                                                       1/2
+  Verifying        : lmbench-3-4.oe2303.riscv64                                                                                                                                  2/2
+
+Installed:
+  libtirpc-devel-1.3.3-2.oe2303.riscv64                                                          lmbench-3-4.oe2303.riscv64                                         
+
+Complete!
+--2023-04-30 01:08:00--  https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
+Resolving git.savannah.gnu.org (git.savannah.gnu.org)... 209.51.188.168
+Connecting to git.savannah.gnu.org (git.savannah.gnu.org)|209.51.188.168|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 49938 (49K) [text/plain]
+Saving to: ‘config.guess’
+
+config.guess                                  100%[==============================================================================================>]  48.77K  --.-KB/s    in 0.1s
+
+2023-04-30 01:08:03 (360 KB/s) - ‘config.guess’ saved [49938/49938]
+
+cd src && make
+make[1]: Entering directory '/home/openeuler/lmbench/src'
+gmake[2]: Entering directory '/home/openeuler/lmbench/src'
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_tcp.c -o ../bin/riscv64-linux-gnu/lib_tcp.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_udp.c -o ../bin/riscv64-linux-gnu/lib_udp.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_unix.c -o ../bin/riscv64-linux-gnu/lib_unix.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_timing.c -o ../bin/riscv64-linux-gnu/lib_timing.o
+lib_timing.c: In function ‘touch’:
+lib_timing.c:1626:9: warning: type defaults to ‘int’ in declaration of ‘psize’ [-Wimplicit-int]
+ 1626 |  static psize;
+      |         ^~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_mem.c -o ../bin/riscv64-linux-gnu/lib_mem.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_stats.c -o ../bin/riscv64-linux-gnu/lib_stats.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_debug.c -o ../bin/riscv64-linux-gnu/lib_debug.o
+lib_debug.c: In function ‘percent_point’:
+lib_debug.c:24:11: warning: implicit declaration of function ‘floor’ [-Wimplicit-function-declaration]
+   24 |  if (t == floor(t)) {
+      |           ^~~~~
+lib_debug.c:24:11: warning: incompatible implicit declaration of built-in function ‘floor’
+lib_debug.c:2:1: note: include ‘<math.h>’ or provide a declaration of ‘floor’
+    1 | #include "bench.h"
+  +++ |+#include <math.h>
+    2 | #include "lib_debug.h"
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c getopt.c -o ../bin/riscv64-linux-gnu/getopt.o
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -c lib_sched.c -o ../bin/riscv64-linux-gnu/lib_sched.o
+lib_sched.c: In function ‘handle_scheduler’:
+lib_sched.c:94:3: warning: ‘return’ with no value, in function returning non-void
+   94 |   return;
+      |   ^~~~~~
+lib_sched.c:46:1: note: declared here
+   46 | handle_scheduler(int childno, int benchproc, int nbenchprocs)
+      | ^~~~~~~~~~~~~~~~
+lib_sched.c: In function ‘sched_pin’:
+lib_sched.c:207:12: warning: implicit declaration of function ‘sched_getaffinity’ [-Wimplicit-function-declaration]
+  207 |   retval = sched_getaffinity(0, sz * sizeof(unsigned long), cpumask);
+      |            ^~~~~~~~~~~~~~~~~
+lib_sched.c:231:11: warning: implicit declaration of function ‘sched_setaffinity’ [-Wimplicit-function-declaration]
+  231 |  retval = sched_setaffinity(0, sz * sizeof(unsigned long), mask);
+      |           ^~~~~~~~~~~~~~~~~
+/bin/rm -f ../bin/riscv64-linux-gnu/lmbench.a
+ar cr ../bin/riscv64-linux-gnu/lmbench.a ../bin/riscv64-linux-gnu/lib_tcp.o ../bin/riscv64-linux-gnu/lib_udp.o ../bin/riscv64-linux-gnu/lib_unix.o ../bin/riscv64-linux-gnu/lib_timing.o ../bin/riscv64-linux-gnu/lib_mem.o ../bin/riscv64-linux-gnu/lib_stats.o ../bin/riscv64-linux-gnu/lib_debug.o ../bin/riscv64-linux-gnu/getopt.o ../bin/riscv64-linux-gnu/lib_sched.o
+ranlib ../bin/riscv64-linux-gnu/lmbench.a
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_file_rd bw_file_rd.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_file_rd.c: In function ‘main’:
+bw_file_rd.c:149:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  149 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_mem bw_mem.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_mem.c: In function ‘main’:
+bw_mem.c:76:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   76 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_mmap_rd bw_mmap_rd.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_mmap_rd.c: In function ‘main’:
+bw_mmap_rd.c:64:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   64 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_pipe bw_pipe.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_pipe.c: In function ‘main’:
+bw_pipe.c:157:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  157 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_tcp bw_tcp.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_tcp.c: In function ‘main’:
+bw_tcp.c:74:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   74 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/bw_unix bw_unix.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+bw_unix.c: In function ‘main’:
+bw_unix.c:153:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  153 |    if (parallel <= 0) lmbench_usage(argc, argv, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/hello hello.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_select lat_select.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_select.c: In function ‘main’:
+lat_select.c:53:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   53 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+lat_select.c: In function ‘doit’:
+lat_select.c:167:9: warning: type defaults to ‘int’ in declaration of ‘count’ [-Wimplicit-int]
+  167 |  static count = 0;
+      |         ^~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_pipe lat_pipe.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_pipe.c: In function ‘main’:
+lat_pipe.c:41:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   41 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_rpc lat_rpc.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_rpc.c: In function ‘main’:
+lat_rpc.c:136:5: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  136 |     lmbench_usage(ac, av, usage);
+      |     ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_syscall lat_syscall.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_syscall.c: In function ‘main’:
+lat_syscall.c:116:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  116 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_tcp lat_tcp.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_tcp.c: In function ‘main’:
+lat_tcp.c:64:5: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   64 |     lmbench_usage(ac, av, usage);
+      |     ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_udp lat_udp.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_udp.c: In function ‘main’:
+lat_udp.c:78:5: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   78 |     lmbench_usage(ac, av, usage);
+      |     ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_mmap lat_mmap.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_mmap.c: In function ‘main’:
+lat_mmap.c:58:5: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   58 |     lmbench_usage(ac, av, usage);
+      |     ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/mhz mhz.c ../bin/riscv64-linux-gnu/lmbench.a -lm -lm
+mhz.c: In function ‘main’:
+mhz.c:492:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  492 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_proc lat_proc.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_proc.c: In function ‘main’:
+lat_proc.c:60:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   60 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_pagefault lat_pagefault.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_pagefault.c: In function ‘main’:
+lat_pagefault.c:54:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   54 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_connect lat_connect.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_connect.c: In function ‘main’:
+lat_connect.c:63:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   63 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_fs lat_fs.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_fs.c: In function ‘main’:
+lat_fs.c:55:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   55 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+/usr/bin/ld: /tmp/ccvOjJgg.o: in function `setup_names':
+/home/openeuler/lmbench/src/lat_fs.c:185: warning: the use of `tempnam' is dangerous, better use `mkstemp'
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_sig lat_sig.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_sig.c: In function ‘main’:
+lat_sig.c:182:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  182 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_mem_rd lat_mem_rd.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_mem_rd.c: In function ‘main’:
+lat_mem_rd.c:47:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   47 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_ctx lat_ctx.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_ctx.c: In function ‘main’:
+lat_ctx.c:74:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   74 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_sem lat_sem.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_sem.c: In function ‘main’:
+lat_sem.c:42:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   42 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/memsize memsize.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_unix lat_unix.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_unix.c: In function ‘main’:
+lat_unix.c:46:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   46 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lmdd lmdd.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/timing_o timing_o.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/enough enough.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/msleep msleep.c
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/loop_o loop_o.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_fifo lat_fifo.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_fifo.c: In function ‘main’:
+lat_fifo.c:45:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   45 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lmhttp lmhttp.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_http lat_http.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_http.c: In function ‘main’:
+lat_http.c:84:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   84 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_fcntl lat_fcntl.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_fcntl.c: In function ‘main’:
+lat_fcntl.c:203:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  203 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/disk disk.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_unix_connect lat_unix_connect.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_unix_connect.c: In function ‘main’:
+lat_unix_connect.c:63:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   63 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -DMAIN -o ../bin/riscv64-linux-gnu/flushdisk flushdisk.c
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_ops lat_ops.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_ops.c: In function ‘main’:
+lat_ops.c:393:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  393 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/line line.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+line.c: In function ‘main’:
+line.c:54:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   54 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/tlb tlb.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+tlb.c: In function ‘main’:
+tlb.c:69:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   69 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/par_mem par_mem.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+par_mem.c: In function ‘main’:
+par_mem.c:64:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   64 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/par_ops par_ops.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+par_ops.c: In function ‘main’:
+par_ops.c:413:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  413 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/stream stream.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+stream.c: In function ‘main’:
+stream.c:70:5: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   70 |     lmbench_usage(ac, av, usage);
+      |     ^~~~~~~~~~~~~
+rm -f ../bin/riscv64-linux-gnu/lmbench
+sed -e "s/<version>/`cat bk.ver`/g" < ../scripts/lmbench > ../bin/riscv64-linux-gnu/lmbench
+cat: bk.ver: No such file or directory
+chmod +x ../bin/riscv64-linux-gnu/lmbench
+gmake[2]: Leaving directory '/home/openeuler/lmbench/src'
+gmake[2]: Entering directory '/home/openeuler/lmbench/src'
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/cache cache.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+cache.c: In function ‘main’:
+cache.c:123:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  123 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_dram_page lat_dram_page.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_dram_page.c: In function ‘main’:
+lat_dram_page.c:66:4: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   66 |    lmbench_usage(ac, av, usage);
+      |    ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_pmake lat_pmake.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_pmake.c: In function ‘main’:
+lat_pmake.c:47:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   47 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_rand lat_rand.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_rand.c: In function ‘main’:
+lat_rand.c:39:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   39 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_usleep lat_usleep.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_usleep.c: In function ‘main’:
+lat_usleep.c:204:3: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+  204 |   lmbench_usage(ac, av, usage);
+      |   ^~~~~~~~~~~~~
+gcc -O -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1 -fstack-protector-strong -g -I/usr/include/tirpc -ltirpc -o ../bin/riscv64-linux-gnu/lat_cmd lat_cmd.c ../bin/riscv64-linux-gnu/lmbench.a -lm
+lat_cmd.c: In function ‘main’:
+lat_cmd.c:40:23: warning: implicit declaration of function ‘lmbench_usage’ [-Wimplicit-function-declaration]
+   40 |    if (parallel <= 0) lmbench_usage(ac, av, usage);
+      |                       ^~~~~~~~~~~~~
+gmake[2]: Leaving directory '/home/openeuler/lmbench/src'
+make[1]: Leaving directory '/home/openeuler/lmbench/src'
+[openeuler@openeuler-riscv64 lmbench]$ make results
+cd src && make results
+make[1]: Entering directory '/home/openeuler/lmbench/src'
+gmake[2]: Entering directory '/home/openeuler/lmbench/src'
+gmake[2]: Nothing to be done for 'all'.
+gmake[2]: Leaving directory '/home/openeuler/lmbench/src'
+gmake[2]: Entering directory '/home/openeuler/lmbench/src'
+gmake[2]: Nothing to be done for 'opt'.
+gmake[2]: Leaving directory '/home/openeuler/lmbench/src'
+=====================================================================
+
+                L M B E N C H   C ON F I G U R A T I O N
+                ----------------------------------------
+
+You need to configure some parameters to lmbench.  Once you have configured
+these parameters, you may do multiple runs by saying
+
+        "make rerun"
+
+in the src subdirectory.
+
+NOTICE: please do not have any other activity on the system if you can
+help it.  Things like the second hand on your xclock or X perfmeters
+are not so good when benchmarking.  In fact, X is not so good when
+benchmarking.
+
+=====================================================================
+
+Hang on, we are calculating your timing granularity.
+OK, it looks like you can time stuff down to 5000 usec resolution.
+
+Hang on, we are calculating your timing overhead.
+OK, it looks like your gettimeofday() costs 0 usecs.
+
+Hang on, we are calculating your loop overhead.
+OK, it looks like your benchmark loop costs 0.00099665 usecs.
+
+=====================================================================
+
+If you are running on an MP machine and you want to try running
+multiple copies of lmbench in parallel, you can specify how many here.
+
+Using this option will make the benchmark run 100x slower (sorry).
+
+NOTE:  WARNING! This feature is experimental and many results are
+        known to be incorrect or random!
+
+MULTIPLE COPIES [default 1]
+Options to control job placement
+1) Allow scheduler to place jobs
+2) Assign each benchmark process with any attendent child processes
+   to its own processor
+3) Assign each benchmark process with any attendent child processes
+   to its own processor, except that it will be as far as possible
+   from other processes
+4) Assign each benchmark and attendent processes to their own
+   processors
+5) Assign each benchmark and attendent processes to their own
+   processors, except that they will be as far as possible from
+   each other and other processes
+6) Custom placement: you assign each benchmark process with attendent
+   child processes to processors
+7) Custom placement: you assign each benchmark and attendent
+   processes to processors
+
+Note: some benchmarks, such as bw_pipe, create attendent child
+processes for each benchmark process.  For example, bw_pipe
+needs a second process to send data down the pipe to be read
+by the benchmark process.  If you have three copies of the
+benchmark process running, then you actually have six processes;
+three attendent child processes sending data down the pipes and
+three benchmark processes reading data and doing the measurements.
+
+Job placement selection: 1
+=====================================================================
+
+Several benchmarks operate on a range of memory.  This memory should be
+sized such that it is at least 4 times as big as the external cache[s]
+on your system.   It should be no more than 80% of your physical memory.
+
+The bigger the range, the more accurate the results, but larger sizes
+take somewhat longer to run the benchmark.
+
+MB [default 686] 512
+Checking to see if you have 512 MB; please wait for a moment...
+512MB OK
+512MB OK
+512MB OK
+Hang on, we are calculating your cache line size.
+OK, it looks like your cache line is 64 bytes.
+
+=====================================================================
+
+lmbench measures a wide variety of system performance, and the full suite
+of benchmarks can take a long time on some platforms.  Consequently, we
+offer the capability to run only predefined subsets of benchmarks, one
+for operating system specific benchmarks and one for hardware specific
+benchmarks.  We also offer the option of running only selected benchmarks
+which is useful during operating system development.
+
+Please remember that if you intend to publish the results you either need
+to do a full run or one of the predefined OS or hardware subsets.
+
+SUBSET (ALL|HARWARE|OS|DEVELOPMENT) [default all]
+=====================================================================
+
+This benchmark measures, by default, memory latency for a number of
+different strides.  That can take a long time and is most useful if you
+are trying to figure out your cache line size or if your cache line size
+is greater than 128 bytes.
+
+If you are planning on sending in these results, please don't do a fast
+run.
+
+Answering yes means that we measure memory latency with a 128 byte stride.
+
+FASTMEM [default no]
+=====================================================================
+
+This benchmark measures, by default, file system latency.  That can
+take a long time on systems with old style file systems (i.e., UFS,
+FFS, etc.).  Linux' ext2fs and Sun's tmpfs are fast enough that this
+test is not painful.
+
+If you are planning on sending in these results, please don't do a fast
+run.
+
+If you want to skip the file system latency tests, answer "yes" below.
+
+SLOWFS [default no]
+=====================================================================
+
+This benchmark can measure disk zone bandwidths and seek times.  These can
+be turned into whizzy graphs that pretty much tell you everything you might
+need to know about the performance of your disk.
+
+This takes a while and requires read access to a disk drive.
+Write is not measured, see disk.c to see how if you want to do so.
+
+If you want to skip the disk tests, hit return below.
+
+If you want to include disk tests, then specify the path to the disk
+device, such as /dev/sda.  For each disk that is readable, you'll be
+prompted for a one line description of the drive, i.e.,
+
+        Iomega IDE ZIP
+or
+        HP C3725S 2GB on 10MB/sec NCR SCSI bus
+
+DISKS [default none]
+=====================================================================
+
+If you are running on an idle network and there are other, identically
+configured systems, on the same wire (no gateway between you and them),
+and you have rsh access to them, then you should run the network part
+of the benchmarks to them.  Please specify any such systems as a space
+separated list such as: ether-host fddi-host hippi-host.
+
+REMOTE [default none]
+=====================================================================
+
+Calculating mhz, please wait for a moment...
+I think your CPU mhz is
+
+        999 MHz, 1.0010 nanosec clock
+
+but I am frequently wrong.  If that is the wrong Mhz, type in your
+best guess as to your processor speed.  It doesn't have to be exact,
+but if you know it is around 800, say 800.
+
+Please note that some processors, such as the P4, have a core which
+is double-clocked, so on those processors the reported clock speed
+will be roughly double the advertised clock rate.  For example, a
+1.8GHz P4 may be reported as a 3592MHz processor.
+
+Processor mhz [default 999 MHz, 1.0010 nanosec clock]
+=====================================================================
+
+We need a place to store a 512 Mbyte file as well as create and delete a
+large number of small files.  We default to /usr/tmp.  If /usr/tmp is a
+memory resident file system (i.e., tmpfs), pick a different place.
+Please specify a directory that has enough space and is a local file
+system.
+
+FSDIR [default /usr/tmp]
+=====================================================================
+
+lmbench outputs status information as it runs various benchmarks.
+By default this output is sent to /dev/tty, but you may redirect
+it to any file you wish (such as /dev/null...).
+
+Status output file [default /dev/tty]
+=====================================================================
+
+There is a database of benchmark results that is shipped with new
+releases of lmbench.  Your results can be included in the database
+if you wish.  The more results the better, especially if they include
+remote networking.  If your results are interesting, i.e., for a new
+fast box, they may be made available on the lmbench web page, which is
+
+        http://www.bitmover.com/lmbench
+
+Mail results [default yes] no
+OK, no results mailed.
+=====================================================================
+
+Confguration done, thanks.
+
+There is a mailing list for discussing lmbench hosted at BitMover.
+Send mail to majordomo@bitmover.com to join the list.
+
+egrep: warning: egrep is obsolescent; using grep -E
+Using config in CONFIG.openeuler-riscv64
+Sun Apr 30 01:19:34 AM CST 2023
+Latency measurements
+Sun Apr 30 01:21:22 AM CST 2023
+Calculating file system latency
+Sun Apr 30 01:21:24 AM CST 2023
+Local networking
+Sun Apr 30 01:25:12 AM CST 2023
+Bandwidth measurements
+Sun Apr 30 01:30:25 AM CST 2023
+Calculating context switch overhead
+Sun Apr 30 01:30:42 AM CST 2023
+Calculating effective TLB size
+Sun Apr 30 01:30:43 AM CST 2023
+Calculating memory load parallelism
+Sun Apr 30 01:48:30 AM CST 2023
+McCalpin's STREAM benchmark
+Sun Apr 30 01:49:07 AM CST 2023
+Calculating memory load latency
+Sun Apr 30 02:44:22 AM CST 2023
+make[1]: Leaving directory '/home/openeuler/lmbench/src'
+[openeuler@openeuler-riscv64 lmbench]$ cat results/riscv64-linux-gnu/openeuler-riscv64.0 
+[lmbench3.0 results for Linux openeuler-riscv64 6.1.0-0.rc3.11.oe2303.riscv64 #1 PREEMPT Fri Mar 24 15:15:27 UTC 2023 riscv64 riscv64 riscv64 GNU/Linux]
+[LMBENCH_VER: ]
+[BENCHMARK_HARDWARE: YES]
+[BENCHMARK_OS: YES]
+[ALL: 512 1k 2k 4k 8k 16k 32k 64k 128k 256k 512k 1m 2m 4m 8m 16m 32m 64m 128m 256m 512m]
+[DISKS: ]
+[DISK_DESC: ]
+[ENOUGH: 5000]
+[FAST: ]
+[FASTMEM: NO]
+[FILE: /usr/tmp/XXX]
+[FSDIR: /usr/tmp]
+[HALF: 512 1k 2k 4k 8k 16k 32k 64k 128k 256k 512k 1m 2m 4m 8m 16m 32m 64m 128m 256m]
+[INFO: INFO.openeuler-riscv64]
+[LINE_SIZE: 64]
+[LOOP_O: 0.00099665]
+[MB: 512]
+[MHZ: 999 MHz, 1.0010 nanosec clock]
+[MOTHERBOARD: ]
+[NETWORKS: ]
+[PROCESSORS: 1]
+[REMOTE: ]
+[SLOWFS: NO]
+[OS: riscv64-linux-gnu]
+[SYNC_MAX: 1]
+[LMBENCH_SCHED: DEFAULT]
+[TIMING_O: 0]
+[LMBENCH VERSION: lmbench-3alpha4]
+[USER: openeuler]
+[HOSTNAME: openeuler-riscv64]
+[NODENAME: openeuler-riscv64]
+[SYSNAME: Linux]
+[PROCESSOR: riscv64]
+[MACHINE: riscv64]
+[RELEASE: 6.1.0-0.rc3.11.oe2303.riscv64]
+[VERSION: #1 PREEMPT Fri Mar 24 15:15:27 UTC 2023]
+[Sun Apr 30 01:19:34 AM CST 2023]
+[ 01:19:18 up 23 min, 1 user, load average: 0.49, 0.61, 0.55]
+[net: Kernel Interface table]
+Kernel: error fetching interface information: Device not found
+[net: Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg]
+Iface: error fetching interface information: Device not found
+[net: eth0             1500    22157      0      1 0          6041      0      0      0 BMRU]
+[if: eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]
+[if: inet 10.0.0.124  netmask 255.255.255.0  broadcast 10.0.0.255]
+[if: inet6 fd6f:6852:d3f4:0:52c5:a761:7697:1c3d  prefixlen 64  scopeid 0x0<global>]
+[if: inet6 240e:388:9f21:a400:ca87:cdf6:2168:c1fd  prefixlen 64  scopeid 0x0<global>]
+[if: inet6 fe80::48d3:de46:5e17:7f21  prefixlen 64  scopeid 0x20<link>]
+[if: ether 42:23:2c:78:f8:3e  txqueuelen 1000  (Ethernet)]
+[if: RX packets 22157  bytes 30274450 (28.8 MiB)]
+[if: RX errors 0  dropped 1  overruns 0  frame 0]
+[if: TX packets 6041  bytes 702830 (686.3 KiB)]
+[if: TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0]
+[if: device interrupt 214]
+[if: ]
+[net: lo              65536       80      0      0 0            80      0      0      0 LRU]
+[if: lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536]
+[if: inet 127.0.0.1  netmask 255.0.0.0]
+[if: inet6 ::1  prefixlen 128  scopeid 0x10<host>]
+[if: loop  txqueuelen 1000  (Local Loopback)]
+[if: RX packets 80  bytes 5944 (5.8 KiB)]
+[if: RX errors 0  dropped 0  overruns 0  frame 0]
+[if: TX packets 80  bytes 5944 (5.8 KiB)]
+[if: TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0]
+[if: ]
+[mount: /dev/mmcblk0p4 on / type ext4 (rw,relatime)]
+[mount: devtmpfs on /dev type devtmpfs (rw,relatime,size=500820k,nr_inodes=125205,mode=755,inode64)]
+[mount: proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)]
+[mount: sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)]
+[mount: securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)]
+[mount: tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,inode64)]
+[mount: devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)]
+[mount: tmpfs on /run type tmpfs (rw,nosuid,nodev,size=200764k,nr_inodes=819200,mode=755,inode64)]
+[mount: tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,size=4096k,nr_inodes=1024,mode=755,inode64)]
+[mount: cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)]
+[mount: efivarfs on /sys/firmware/efi/efivars type efivarfs (ro,nosuid,nodev,noexec,relatime)]
+[mount: cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)]
+[mount: cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)]
+[mount: cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)]
+[mount: cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)]
+[mount: cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)]
+[mount: cgroup on /sys/fs/cgroup/rdma type cgroup (rw,nosuid,nodev,noexec,relatime,rdma)]
+[mount: cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)]
+[mount: cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)]
+[mount: cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)]
+[mount: cgroup on /sys/fs/cgroup/misc type cgroup (rw,nosuid,nodev,noexec,relatime,misc)]
+[mount: cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)]
+[mount: debugfs on /sys/kernel/debug type debugfs (rw,nosuid,nodev,noexec,relatime)]
+[mount: tracefs on /sys/kernel/tracing type tracefs (rw,nosuid,nodev,noexec,relatime)]
+[mount: hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime,pagesize=2M)]
+[mount: tmpfs on /tmp type tmpfs (rw,nosuid,nodev,size=501904k,nr_inodes=1048576,inode64)]
+[mount: fusectl on /sys/fs/fuse/connections type fusectl (rw,nosuid,nodev,noexec,relatime)]
+[mount: configfs on /sys/kernel/config type configfs (rw,nosuid,nodev,noexec,relatime)]
+[mount: ramfs on /run/credentials/systemd-sysusers.service type ramfs (ro,nosuid,nodev,noexec,relatime,mode=700)]
+[mount: /dev/mmcblk0p3 on /boot type ext4 (rw,relatime)]
+Simple syscall: 0.3982 microseconds
+Simple read: 1.1651 microseconds
+Simple write: 0.7629 microseconds
+Simple stat: 14.4859 microseconds
+Simple fstat: 6.9180 microseconds
+Simple open/close: 34.3439 microseconds
+Select on 10 fd's: 2.4202 microseconds
+Select on 100 fd's: 12.4215 microseconds
+Select on 250 fd's: 29.0000 microseconds
+Select on 500 fd's: 58.7553 microseconds
+Select on 10 tcp fd's: 2.8897 microseconds
+Select on 100 tcp fd's: 33.9817 microseconds
+Select on 250 tcp fd's: 84.4769 microseconds
+Select on 500 tcp fd's: 172.1290 microseconds
+Signal handler installation: 1.5585 microseconds
+Signal handler overhead: 13.2861 microseconds
+Protection fault: 1.4266 microseconds
+Pipe latency: 36.4116 microseconds
+AF_UNIX sock stream latency: 89.0702 microseconds
+Process fork+exit: 6684.0000 microseconds
+Process fork+execve: 33405.0000 microseconds
+Process fork+/bin/sh -c: 48909.0000 microseconds
+integer bit: 1.00 nanoseconds
+integer add: 0.02 nanoseconds
+integer mul: 3.24 nanoseconds
+integer div: 11.99 nanoseconds
+integer mod: 3.98 nanoseconds
+int64 bit: 1.00 nanoseconds
+int64 add: 0.02 nanoseconds
+int64 mul: 6.14 nanoseconds
+int64 div: 18.49 nanoseconds
+int64 mod: 3.01 nanoseconds
+float add: 3.95 nanoseconds
+float mul: 3.97 nanoseconds
+float div: 18.86 nanoseconds
+double add: 4.95 nanoseconds
+double mul: 4.97 nanoseconds
+double div: 33.89 nanoseconds
+float bogomflops: 26.98 nanoseconds
+double bogomflops: 44.06 nanoseconds
+integer bit parallelism: 1.30
+integer add parallelism: 1.27
+integer mul parallelism: 2.72
+integer div parallelism: 7.00
+integer mod parallelism: 1.02
+int64 bit parallelism: 1.00
+int64 add parallelism: 1.21
+int64 mul parallelism: 1.48
+int64 div parallelism: 8.36
+int64 mod parallelism: 1.26
+float add parallelism: 3.88
+float mul parallelism: 1.60
+float div parallelism: 1.05
+double add parallelism: 4.87
+double mul parallelism: 1.69
+double div parallelism: 1.03
+File /usr/tmp/XXX write bandwidth: 10048 KB/sec
+Pagefaults on /usr/tmp/XXX: 8.3795 microseconds
+
+"mappings
+0.524288 241
+1.048576 335
+2.097152 561
+4.194304 967
+8.388608 1778
+16.777216 3474
+33.554432 6604
+67.108864 13016
+134.217728 25656
+268.435456 51584
+536.870912 102080
+
+"File system latency
+0k      20      3709    4310
+1k      14      2408    3311
+4k      13      2407    3314
+10k     10      1683    3072
+
+unable to register (XACT_PROG, XACT_VERS, udp).
+UDP latency using localhost: 179.2662 microseconds
+TCP latency using localhost: 268.2789 microseconds
+localhost: RPC: Timed out
+localhost: RPC: Remote system error - Connection refused
+�U��?: RPC: Timed out
+TCP/IP connection cost to localhost: 937.8571 microseconds
+
+Socket bandwidth using localhost
+0.000001 0.10 MB/sec
+0.000064 5.50 MB/sec
+0.000128 10.79 MB/sec
+0.000256 20.58 MB/sec
+0.000512 39.00 MB/sec
+0.001024 58.69 MB/sec
+0.001437 79.29 MB/sec
+10.485760 183.91 MB/sec
+
+Avg xfer: 3.2KB, 41.8KB in 22.6390 millisecs, 1.85 MB/sec
+AF_UNIX sock stream bandwidth: 180.96 MB/sec
+Pipe bandwidth: 186.74 MB/sec
+
+"read bandwidth
+0.000512 78.28
+0.001024 119.23
+0.002048 231.79
+0.004096 390.96
+0.008192 413.60
+0.016384 418.86
+0.032768 404.69
+0.065536 446.52
+0.131072 444.31
+0.262144 445.97
+0.524288 445.14
+1.05 444.06
+2.10 443.98
+4.19 446.39
+8.39 442.95
+16.78 444.24
+33.55 455.55
+67.11 459.50
+134.22 461.09
+268.44 459.26
+536.87 460.71
+
+"read open2close bandwidth
+0.000512 9.36
+0.001024 18.14
+0.002048 33.91
+0.004096 63.76
+0.008192 102.32
+0.016384 157.23
+0.032768 218.57
+0.065536 306.30
+0.131072 356.76
+0.262144 393.61
+0.524288 411.59
+1.05 424.35
+2.10 427.38
+4.19 438.60
+8.39 439.26
+16.78 445.27
+33.55 451.57
+67.11 454.44
+134.22 455.52
+268.44 455.19
+536.87 456.35
+
+
+"Mmap read bandwidth
+0.000512 2375.79
+0.001024 2549.35
+0.002048 2607.02
+0.004096 2636.90
+0.008192 2651.62
+0.016384 2652.19
+0.032768 2393.98
+0.065536 2011.86
+0.131072 2038.37
+0.262144 2035.35
+0.524288 2051.43
+1.05 2025.34
+2.10 1963.01
+4.19 1947.52
+8.39 1958.35
+16.78 2000.86
+33.55 2031.63
+67.11 2051.88
+134.22 2062.10
+268.44 2065.70
+536.87 2069.70
+
+"Mmap read open2close bandwidth
+0.000512 2.88
+0.001024 5.34
+0.002048 10.42
+0.004096 20.43
+0.008192 38.77
+0.016384 69.17
+0.032768 104.78
+0.065536 171.14
+0.131072 226.03
+0.262144 281.88
+0.524288 315.08
+1.05 337.60
+2.10 348.83
+4.19 352.11
+8.39 362.73
+16.78 368.38
+33.55 373.92
+67.11 383.31
+134.22 383.08
+268.44 384.72
+536.87 386.32
+
+
+"libc bcopy unaligned
+0.000512 1639.83
+0.001024 1858.17
+0.002048 2034.28
+0.004096 2112.13
+0.008192 2159.56
+0.016384 2033.37
+0.032768 1552.72
+0.065536 1194.39
+0.131072 1223.21
+0.262144 1265.46
+0.524288 1231.39
+1.05 1192.14
+2.10 1304.81
+4.19 1294.94
+8.39 1291.75
+16.78 1299.95
+33.55 1292.84
+67.11 1298.12
+134.22 1295.14
+268.44 1291.31
+
+"libc bcopy aligned
+0.000512 1611.02
+0.001024 1846.51
+0.002048 2030.63
+0.004096 2119.11
+0.008192 2157.04
+0.016384 2002.42
+0.032768 1598.44
+0.065536 1205.53
+0.131072 1238.51
+0.262144 1266.87
+0.524288 1268.05
+1.05 1231.76
+2.10 1304.00
+4.19 1314.62
+8.39 1332.37
+16.78 1322.92
+33.55 1318.24
+67.11 1320.39
+134.22 1310.84
+268.44 1310.11
+
+Memory bzero bandwidth
+0.000512 3984.41
+0.001024 4823.72
+0.002048 5378.57
+0.004096 5854.19
+0.008192 6120.10
+0.016384 6230.49
+0.032768 5809.93
+0.065536 4019.54
+0.131072 3166.11
+0.262144 2908.40
+0.524288 2799.03
+1.05 2744.48
+2.10 2975.74
+4.19 2978.38
+8.39 2968.89
+16.78 2977.32
+33.55 2976.79
+67.11 2975.74
+134.22 2978.84
+268.44 2976.79
+536.87 2976.60
+
+"unrolled bcopy unaligned
+0.000512 1950.90
+0.001024 1950.73
+0.002048 1966.01
+0.004096 1968.69
+0.008192 1959.60
+0.016384 1915.83
+0.032768 1598.13
+0.065536 1184.24
+0.131072 1197.37
+0.262144 1203.38
+0.524288 1196.78
+1.05 1173.34
+2.10 1316.07
+4.19 1301.77
+8.39 1301.57
+16.78 1306.74
+33.55 1310.77
+67.11 1301.16
+134.22 1298.57
+268.44 1296.96
+
+"unrolled partial bcopy unaligned
+0.000512 6758.27
+0.001024 6988.28
+0.002048 7290.91
+0.004096 7484.82
+0.008192 7493.83
+0.016384 5607.99
+0.032768 352.22
+0.065536 372.50
+0.131072 368.83
+0.262144 354.32
+0.524288 356.66
+1.05 353.23
+2.10 313.76
+4.19 309.63
+8.39 309.95
+16.78 310.84
+33.55 309.74
+67.11 310.15
+134.22 310.94
+268.44 311.20
+
+Memory read bandwidth
+0.000512 1320.66
+0.001024 1328.64
+0.002048 1327.61
+0.004096 1329.09
+0.008192 1330.20
+0.016384 1329.31
+0.032768 1326.96
+0.065536 1159.51
+0.131072 1158.70
+0.262144 1165.08
+0.524288 1165.28
+1.05 1154.46
+2.10 1198.37
+4.19 1198.54
+8.39 1198.72
+16.78 1199.57
+33.55 1201.38
+67.11 1200.75
+134.22 1200.94
+268.44 1200.35
+536.87 1200.74
+
+Memory partial read bandwidth
+0.000512 5137.78
+0.001024 5210.40
+0.002048 5255.39
+0.004096 5266.82
+0.008192 5247.63
+0.016384 5269.83
+0.032768 5253.48
+0.065536 2473.28
+0.131072 2459.67
+0.262144 2473.50
+0.524288 2472.12
+1.05 2457.90
+2.10 2601.00
+4.19 2589.88
+8.39 2588.68
+16.78 2590.28
+33.55 2598.30
+67.11 2597.09
+134.22 2596.54
+268.44 2596.11
+536.87 2596.68
+
+Memory write bandwidth
+0.000512 3721.36
+0.001024 3769.92
+0.002048 3853.56
+0.004096 3903.39
+0.008192 3897.06
+0.016384 3922.85
+0.032768 3561.33
+0.065536 1320.26
+0.131072 1233.31
+0.262144 1193.65
+0.524288 1198.48
+1.05 1189.83
+2.10 1098.56
+4.19 1098.70
+8.39 1101.30
+16.78 1101.81
+33.55 1098.49
+67.11 1098.18
+134.22 1099.26
+268.44 1098.28
+536.87 1098.29
+
+Memory partial write bandwidth
+0.000512 13875.18
+0.001024 13688.47
+0.002048 14371.27
+0.004096 14716.47
+0.008192 14657.34
+0.016384 14888.33
+0.032768 10758.46
+0.065536 391.22
+0.131072 387.38
+0.262144 393.02
+0.524288 388.82
+1.05 389.27
+2.10 363.27
+4.19 362.45
+8.39 362.50
+16.78 362.67
+33.55 362.59
+67.11 362.46
+134.22 362.45
+268.44 362.45
+536.87 362.37
+
+Memory partial read/write bandwidth
+0.000512 3446.08
+0.001024 3474.20
+0.002048 3497.35
+0.004096 3500.58
+0.008192 3492.04
+0.016384 3497.88
+0.032768 2984.93
+0.065536 1325.63
+0.131072 1337.96
+0.262144 1335.77
+0.524288 1336.98
+1.05 1327.79
+2.10 1347.13
+4.19 1344.97
+8.39 1343.25
+16.78 1349.84
+33.55 1341.10
+67.11 1348.05
+134.22 1346.46
+268.44 1346.52
+536.87 1346.29
+
+
+
+"size=0k ovr=9.17
+2 11.36
+4 17.42
+8 20.30
+16 22.18
+24 22.43
+32 23.38
+64 24.13
+96 25.05
+
+"size=4k ovr=11.68
+2 15.09
+4 23.78
+8 25.37
+16 25.38
+24 25.82
+32 26.38
+64 28.23
+96 29.37
+
+"size=8k ovr=13.83
+2 22.13
+4 26.30
+8 26.80
+16 25.78
+24 26.88
+32 27.33
+64 29.63
+96 30.62
+
+"size=16k ovr=19.69
+2 26.08
+4 27.09
+8 28.26
+16 27.51
+24 27.72
+32 29.39
+64 31.74
+96 32.01
+
+"size=32k ovr=35.91
+2 23.70
+4 25.17
+8 26.11
+16 25.00
+24 25.92
+32 27.95
+64 29.67
+96 29.91
+
+"size=64k ovr=52.89
+2 24.84
+4 25.94
+8 25.58
+16 27.38
+24 28.59
+32 28.84
+64 30.25
+96 29.61
+
+tlb: 10 pages
+
+Memory load parallelism
+0.001024 2.00
+0.002048 2.00
+0.004096 2.00
+0.008192 2.07
+0.016384 2.00
+0.032768 2.02
+0.065536 5.65
+0.131072 5.64
+0.262144 5.79
+0.524288 6.10
+1.048576 5.99
+2.097152 5.83
+4.194304 5.20
+8.388608 5.19
+16.777216 5.20
+33.554432 5.00
+67.108864 5.04
+134.217728 4.93
+268.435456 4.98
+536.870912 5.06
+
+STREAM copy latency: 6.26 nanoseconds
+STREAM copy bandwidth: 2555.29 MB/sec
+STREAM scale latency: 8.65 nanoseconds
+STREAM scale bandwidth: 1848.85 MB/sec
+STREAM add latency: 5.51 nanoseconds
+STREAM add bandwidth: 4354.75 MB/sec
+STREAM triad latency: 15.69 nanoseconds
+STREAM triad bandwidth: 1529.18 MB/sec
+STREAM2 fill latency: 3.03 nanoseconds
+STREAM2 fill bandwidth: 2641.82 MB/sec
+STREAM2 copy latency: 6.26 nanoseconds
+STREAM2 copy bandwidth: 2557.48 MB/sec
+STREAM2 daxpy latency: 15.42 nanoseconds
+STREAM2 daxpy bandwidth: 1556.49 MB/sec
+STREAM2 sum latency: 5.51 nanoseconds
+STREAM2 sum bandwidth: 1451.36 MB/sec
+
+Memory load latency
+"stride=16
+0.00049 2.043
+0.00098 2.043
+0.00195 2.027
+0.00293 2.028
+0.00391 2.023
+0.00586 2.020
+0.00781 2.019
+0.00977 2.018
+0.01172 2.019
+0.01367 2.021
+0.01562 2.020
+0.01758 2.023
+0.01953 2.025
+0.02148 2.031
+0.02344 2.030
+0.02539 2.032
+0.02734 2.029
+0.02930 2.032
+0.03125 2.032
+0.03516 4.289
+0.03906 5.947
+0.04297 5.949
+0.04688 5.949
+0.05078 5.947
+0.05469 5.945
+0.05859 5.944
+0.06250 5.942
+0.07031 5.945
+0.07812 5.941
+0.08594 5.942
+0.09375 5.938
+0.10156 5.938
+0.10938 5.935
+0.11719 5.933
+0.12500 5.933
+0.14062 5.930
+0.15625 5.929
+0.17188 5.926
+0.18750 5.924
+0.20312 5.928
+0.21875 5.927
+0.23438 5.927
+0.25000 5.925
+0.28125 5.925
+0.31250 5.925
+0.34375 5.920
+0.37500 5.923
+0.40625 5.924
+0.43750 5.922
+0.46875 5.924
+0.50000 5.920
+0.56250 5.925
+0.62500 5.924
+0.68750 5.927
+0.75000 5.929
+0.81250 5.934
+0.87500 5.939
+0.93750 5.938
+1.00000 5.942
+1.12500 6.014
+1.25000 6.057
+1.37500 6.099
+1.50000 6.126
+1.62500 6.120
+1.75000 6.121
+1.87500 6.124
+2.00000 6.126
+2.25000 6.124
+2.50000 6.124
+2.75000 6.125
+3.00000 6.126
+3.25000 6.124
+3.50000 6.120
+3.75000 6.120
+4.00000 6.124
+4.50000 6.122
+5.00000 6.124
+5.50000 6.128
+6.00000 6.126
+6.50000 6.125
+7.00000 6.124
+7.50000 6.127
+8.00000 6.126
+9.00000 6.126
+10.00000 6.126
+11.00000 6.124
+12.00000 6.127
+13.00000 6.123
+14.00000 6.126
+15.00000 6.127
+16.00000 6.126
+18.00000 6.126
+20.00000 6.123
+22.00000 6.123
+24.00000 6.124
+26.00000 6.126
+28.00000 6.125
+30.00000 6.126
+32.00000 6.126
+36.00000 6.126
+40.00000 6.127
+44.00000 6.129
+48.00000 6.125
+52.00000 6.125
+56.00000 6.124
+60.00000 6.127
+64.00000 6.125
+72.00000 6.124
+80.00000 6.126
+88.00000 6.124
+96.00000 6.125
+104.00000 6.127
+112.00000 6.126
+120.00000 6.126
+128.00000 6.126
+144.00000 6.127
+160.00000 6.127
+176.00000 6.124
+192.00000 6.127
+208.00000 6.126
+224.00000 6.124
+240.00000 6.127
+256.00000 6.128
+288.00000 6.126
+320.00000 6.124
+352.00000 6.123
+384.00000 6.127
+416.00000 6.128
+448.00000 6.129
+480.00000 6.126
+512.00000 6.125
+
+"stride=32
+0.00049 2.042
+0.00098 2.043
+0.00195 2.044
+0.00293 2.043
+0.00391 2.027
+0.00586 2.028
+0.00781 2.023
+0.00977 2.024
+0.01172 2.023
+0.01367 2.024
+0.01562 2.023
+0.01758 2.026
+0.01953 2.028
+0.02148 2.029
+0.02344 2.029
+0.02539 2.031
+0.02734 2.031
+0.02930 2.033
+0.03125 2.033
+0.03516 7.597
+0.03906 11.869
+0.04297 11.867
+0.04688 11.871
+0.05078 11.867
+0.05469 11.865
+0.05859 11.862
+0.06250 11.857
+0.07031 11.857
+0.07812 11.848
+0.08594 11.844
+0.09375 11.845
+0.10156 11.837
+0.10938 11.839
+0.11719 11.831
+0.12500 11.833
+0.14062 11.827
+0.15625 11.822
+0.17188 11.816
+0.18750 11.820
+0.20312 11.820
+0.21875 11.821
+0.23438 11.819
+0.25000 11.817
+0.28125 11.816
+0.31250 11.817
+0.34375 11.817
+0.37500 11.815
+0.40625 11.817
+0.43750 11.815
+0.46875 11.816
+0.50000 11.809
+0.56250 11.815
+0.62500 11.824
+0.68750 11.828
+0.75000 11.833
+0.81250 11.839
+0.87500 11.846
+0.93750 11.846
+1.00000 11.851
+1.12500 11.972
+1.25000 12.076
+1.37500 12.152
+1.50000 12.216
+1.62500 12.217
+1.75000 12.216
+1.87500 12.214
+2.00000 12.213
+2.25000 12.219
+2.50000 12.218
+2.75000 12.213
+3.00000 12.217
+3.25000 12.217
+3.50000 12.214
+3.75000 12.214
+4.00000 12.216
+4.50000 12.217
+5.00000 12.218
+5.50000 12.217
+6.00000 12.213
+6.50000 12.216
+7.00000 12.216
+7.50000 12.213
+8.00000 12.216
+9.00000 12.216
+10.00000 12.218
+11.00000 12.215
+12.00000 12.213
+13.00000 12.216
+14.00000 12.208
+15.00000 12.209
+16.00000 12.211
+18.00000 12.213
+20.00000 12.211
+22.00000 12.207
+24.00000 12.207
+26.00000 12.214
+28.00000 12.217
+30.00000 12.210
+32.00000 12.210
+36.00000 12.209
+40.00000 12.212
+44.00000 12.211
+48.00000 12.215
+52.00000 12.211
+56.00000 12.216
+60.00000 12.215
+64.00000 12.214
+72.00000 12.215
+80.00000 12.216
+88.00000 12.215
+96.00000 12.215
+104.00000 12.216
+112.00000 12.221
+120.00000 12.218
+128.00000 12.220
+144.00000 12.212
+160.00000 12.215
+176.00000 12.218
+192.00000 12.217
+208.00000 12.221
+224.00000 12.217
+240.00000 12.221
+256.00000 12.221
+288.00000 12.218
+320.00000 12.217
+352.00000 12.219
+384.00000 12.212
+416.00000 12.211
+448.00000 12.222
+480.00000 12.214
+512.00000 12.218
+
+"stride=64
+0.00049 2.042
+0.00098 2.043
+0.00195 2.043
+0.00293 2.043
+0.00391 2.043
+0.00586 2.043
+0.00781 2.029
+0.00977 2.030
+0.01172 2.031
+0.01367 2.028
+0.01562 2.027
+0.01758 2.031
+0.01953 2.031
+0.02148 2.034
+0.02344 2.033
+0.02539 2.034
+0.02734 2.034
+0.02930 2.037
+0.03125 2.037
+0.03516 14.121
+0.03906 23.691
+0.04297 23.674
+0.04688 23.692
+0.05078 23.696
+0.05469 23.695
+0.05859 23.690
+0.06250 23.684
+0.07031 23.679
+0.07812 23.676
+0.08594 23.666
+0.09375 23.654
+0.10156 23.653
+0.10938 23.641
+0.11719 23.633
+0.12500 23.629
+0.14062 23.629
+0.15625 23.616
+0.17188 23.616
+0.18750 23.622
+0.20312 23.612
+0.21875 23.613
+0.23438 23.612
+0.25000 23.617
+0.28125 23.607
+0.31250 23.605
+0.34375 23.609
+0.37500 23.604
+0.40625 23.603
+0.43750 23.607
+0.46875 23.596
+0.50000 23.615
+0.56250 23.614
+0.62500 23.632
+0.68750 23.620
+0.75000 23.637
+0.81250 23.656
+0.87500 23.667
+0.93750 23.667
+1.00000 23.677
+1.12500 23.914
+1.25000 24.118
+1.37500 24.268
+1.50000 24.394
+1.62500 24.386
+1.75000 24.380
+1.87500 24.388
+2.00000 24.402
+2.25000 24.402
+2.50000 24.399
+2.75000 24.395
+3.00000 24.397
+3.25000 24.385
+3.50000 24.416
+3.75000 24.399
+4.00000 24.395
+4.50000 24.391
+5.00000 24.401
+5.50000 24.398
+6.00000 24.392
+6.50000 24.394
+7.00000 24.402
+7.50000 24.392
+8.00000 24.398
+9.00000 24.393
+10.00000 24.412
+11.00000 69.954
+12.00000 76.303
+13.00000 24.417
+14.00000 24.395
+15.00000 24.382
+16.00000 24.391
+18.00000 24.391
+20.00000 24.396
+22.00000 24.393
+24.00000 24.386
+26.00000 24.394
+28.00000 24.397
+30.00000 24.391
+32.00000 24.399
+36.00000 24.383
+40.00000 24.382
+44.00000 24.389
+48.00000 24.387
+52.00000 24.386
+56.00000 24.400
+60.00000 24.391
+64.00000 24.393
+72.00000 24.390
+80.00000 24.396
+88.00000 24.388
+96.00000 24.392
+104.00000 24.390
+112.00000 24.382
+120.00000 24.400
+128.00000 24.397
+144.00000 24.379
+160.00000 24.398
+176.00000 24.388
+192.00000 24.395
+208.00000 24.387
+224.00000 24.396
+240.00000 24.374
+256.00000 24.377
+288.00000 24.379
+320.00000 24.397
+352.00000 24.400
+384.00000 24.391
+416.00000 24.379
+448.00000 24.394
+480.00000 24.384
+512.00000 24.404
+
+"stride=128
+0.00049 2.042
+0.00098 2.043
+0.00195 2.043
+0.00293 2.042
+0.00391 2.042
+0.00586 2.043
+0.00781 2.043
+0.00977 2.044
+0.01172 2.044
+0.01367 2.030
+0.01562 2.030
+0.01758 2.032
+0.01953 2.032
+0.02148 2.034
+0.02344 2.034
+0.02539 2.030
+0.02734 2.031
+0.02930 2.032
+0.03125 2.032
+0.03516 15.460
+0.03906 25.812
+0.04297 25.802
+0.04688 25.800
+0.05078 25.796
+0.05469 25.779
+0.05859 25.760
+0.06250 25.754
+0.07031 25.774
+0.07812 25.736
+0.08594 25.720
+0.09375 25.710
+0.10156 25.697
+0.10938 25.673
+0.11719 25.682
+0.12500 25.665
+0.14062 25.628
+0.15625 25.630
+0.17188 25.623
+0.18750 25.624
+0.20312 25.617
+0.21875 25.615
+0.23438 25.616
+0.25000 25.601
+0.28125 25.601
+0.31250 25.602
+0.34375 25.594
+0.37500 25.590
+0.40625 25.587
+0.43750 25.587
+0.46875 25.583
+0.50000 25.578
+0.56250 25.585
+0.62500 25.599
+0.68750 25.599
+0.75000 25.610
+0.81250 25.610
+0.87500 25.605
+0.93750 25.625
+1.00000 25.615
+1.12500 25.969
+1.25000 26.214
+1.37500 26.427
+1.50000 26.573
+1.62500 26.572
+1.75000 26.566
+1.87500 26.563
+2.00000 26.574
+2.25000 26.569
+2.50000 26.571
+2.75000 26.578
+3.00000 26.568
+3.25000 26.569
+3.50000 26.567
+3.75000 26.576
+4.00000 26.573
+4.50000 26.566
+5.00000 26.565
+5.50000 26.572
+6.00000 26.569
+6.50000 26.568
+7.00000 26.574
+7.50000 26.570
+8.00000 26.569
+9.00000 26.566
+10.00000 26.567
+11.00000 26.524
+12.00000 26.486
+13.00000 26.437
+14.00000 26.409
+15.00000 26.381
+16.00000 26.356
+18.00000 26.321
+20.00000 26.289
+22.00000 26.260
+24.00000 26.244
+26.00000 26.227
+28.00000 26.259
+30.00000 26.263
+32.00000 26.284
+36.00000 26.319
+40.00000 26.343
+44.00000 26.340
+48.00000 26.310
+52.00000 26.290
+56.00000 26.265
+60.00000 26.267
+64.00000 26.286
+72.00000 26.317
+80.00000 26.302
+88.00000 26.287
+96.00000 26.289
+104.00000 26.313
+112.00000 26.299
+120.00000 26.279
+128.00000 26.284
+144.00000 26.298
+160.00000 26.291
+176.00000 26.296
+192.00000 26.280
+208.00000 26.300
+224.00000 26.301
+240.00000 26.292
+256.00000 26.281
+288.00000 26.294
+320.00000 26.290
+352.00000 26.285
+384.00000 26.289
+416.00000 26.290
+448.00000 26.287
+480.00000 26.289
+512.00000 26.276
+
+"stride=256
+0.00049 2.043
+0.00098 2.043
+0.00195 2.042
+0.00293 2.043
+0.00391 2.043
+0.00586 2.043
+0.00781 2.043
+0.00977 2.044
+0.01172 2.044
+0.01367 2.045
+0.01562 2.045
+0.01758 2.046
+0.01953 2.047
+0.02148 2.047
+0.02344 2.047
+0.02539 2.032
+0.02734 2.033
+0.02930 2.033
+0.03125 2.033
+0.03516 18.210
+0.03906 30.201
+0.04297 30.237
+0.04688 30.243
+0.05078 30.239
+0.05469 30.207
+0.05859 30.167
+0.06250 30.138
+0.07031 30.213
+0.07812 30.170
+0.08594 30.136
+0.09375 30.109
+0.10156 30.082
+0.10938 30.059
+0.11719 30.039
+0.12500 30.026
+0.14062 29.998
+0.15625 29.977
+0.17188 29.950
+0.18750 29.949
+0.20312 29.926
+0.21875 29.917
+0.23438 29.905
+0.25000 29.897
+0.28125 29.875
+0.31250 29.874
+0.34375 29.856
+0.37500 29.855
+0.40625 29.829
+0.43750 29.849
+0.46875 29.834
+0.50000 29.829
+0.56250 29.830
+0.62500 29.830
+0.68750 29.826
+0.75000 29.837
+0.81250 29.828
+0.87500 29.846
+0.93750 29.846
+1.00000 29.845
+1.12500 30.550
+1.25000 31.059
+1.37500 31.483
+1.50000 31.806
+1.62500 31.794
+1.75000 31.801
+1.87500 31.793
+2.00000 31.810
+2.25000 31.806
+2.50000 31.805
+2.75000 31.789
+3.00000 31.805
+3.25000 31.789
+3.50000 31.797
+3.75000 31.791
+4.00000 31.807
+4.50000 31.794
+5.00000 31.795
+5.50000 31.792
+6.00000 31.793
+6.50000 31.797
+7.00000 31.791
+7.50000 31.795
+8.00000 31.798
+9.00000 31.799
+10.00000 31.794
+11.00000 31.705
+12.00000 31.623
+13.00000 31.551
+14.00000 31.491
+15.00000 31.444
+16.00000 31.392
+18.00000 31.328
+20.00000 31.266
+22.00000 31.218
+24.00000 31.176
+26.00000 31.139
+28.00000 31.110
+30.00000 31.087
+32.00000 31.062
+36.00000 31.031
+40.00000 31.011
+44.00000 30.984
+48.00000 30.962
+52.00000 30.941
+56.00000 30.932
+60.00000 30.954
+64.00000 30.987
+72.00000 31.088
+80.00000 31.079
+88.00000 31.049
+96.00000 31.015
+104.00000 30.996
+112.00000 30.980
+120.00000 30.944
+128.00000 30.990
+144.00000 31.029
+160.00000 31.005
+176.00000 30.980
+192.00000 30.984
+208.00000 31.013
+224.00000 30.995
+240.00000 30.990
+256.00000 30.981
+288.00000 30.994
+320.00000 30.987
+352.00000 30.992
+384.00000 30.997
+416.00000 31.007
+448.00000 30.982
+480.00000 30.990
+512.00000 30.988
+
+"stride=512
+0.00049 2.042
+0.00098 2.042
+0.00195 2.043
+0.00293 2.043
+0.00391 2.043
+0.00586 2.043
+0.00781 2.043
+0.00977 2.044
+0.01172 2.043
+0.01367 2.044
+0.01562 2.044
+0.01758 2.044
+0.01953 2.045
+0.02148 2.046
+0.02344 2.045
+0.02539 2.046
+0.02734 2.046
+0.02930 2.046
+0.03125 2.046
+0.03516 29.230
+0.03906 49.346
+0.04297 49.268
+0.04688 49.248
+0.05078 49.266
+0.05469 49.289
+0.05859 49.245
+0.06250 49.183
+0.07031 49.284
+0.07812 49.276
+0.08594 49.176
+0.09375 49.119
+0.10156 49.046
+0.10938 48.994
+0.11719 48.970
+0.12500 48.926
+0.14062 48.855
+0.15625 48.800
+0.17188 48.741
+0.18750 48.712
+0.20312 48.681
+0.21875 48.648
+0.23438 48.617
+0.25000 48.609
+0.28125 48.566
+0.31250 48.539
+0.34375 48.517
+0.37500 48.514
+0.40625 48.499
+0.43750 48.472
+0.46875 48.478
+0.50000 48.451
+0.56250 48.436
+0.62500 48.439
+0.68750 48.448
+0.75000 48.454
+0.81250 48.473
+0.87500 48.440
+0.93750 48.465
+1.00000 48.448
+1.12500 49.764
+1.25000 50.932
+1.37500 51.704
+1.50000 52.458
+1.62500 52.466
+1.75000 52.444
+1.87500 52.446
+2.00000 52.481
+2.25000 52.474
+2.50000 52.461
+2.75000 52.452
+3.00000 52.450
+3.25000 52.481
+3.50000 52.455
+3.75000 52.440
+4.00000 52.454
+4.50000 52.456
+5.00000 52.458
+5.50000 52.445
+6.00000 52.455
+6.50000 52.464
+7.00000 52.442
+7.50000 52.445
+8.00000 52.462
+9.00000 52.472
+10.00000 52.459
+11.00000 52.219
+12.00000 52.021
+13.00000 51.862
+14.00000 51.723
+15.00000 51.607
+16.00000 51.485
+18.00000 51.330
+20.00000 51.170
+22.00000 51.063
+24.00000 50.951
+26.00000 50.897
+28.00000 50.810
+30.00000 50.751
+32.00000 50.698
+36.00000 50.611
+40.00000 50.518
+44.00000 50.463
+48.00000 50.431
+52.00000 50.380
+56.00000 50.358
+60.00000 50.332
+64.00000 50.271
+72.00000 50.250
+80.00000 50.204
+88.00000 50.178
+96.00000 50.167
+104.00000 50.130
+112.00000 50.111
+120.00000 50.079
+128.00000 50.177
+144.00000 50.332
+160.00000 50.293
+176.00000 50.244
+192.00000 50.220
+208.00000 50.196
+224.00000 50.180
+240.00000 50.151
+256.00000 50.171
+288.00000 50.250
+320.00000 50.198
+352.00000 50.185
+384.00000 50.193
+416.00000 50.223
+448.00000 50.201
+480.00000 50.184
+512.00000 50.177
+
+"stride=1024
+0.00098 2.043
+0.00195 2.042
+0.00293 2.043
+0.00391 2.042
+0.00586 2.043
+0.00781 2.043
+0.00977 2.043
+0.01172 2.043
+0.01367 2.044
+0.01562 2.043
+0.01758 2.044
+0.01953 2.045
+0.02148 2.044
+0.02344 2.045
+0.02539 2.045
+0.02734 2.045
+0.02930 2.046
+0.03125 2.045
+0.03516 81.162
+0.03906 145.879
+0.04297 145.893
+0.04688 145.883
+0.05078 145.978
+0.05469 145.904
+0.05859 145.871
+0.06250 145.923
+0.07031 145.946
+0.07812 145.880
+0.08594 145.908
+0.09375 145.905
+0.10156 145.919
+0.10938 145.959
+0.11719 145.917
+0.12500 145.935
+0.14062 145.945
+0.15625 145.923
+0.17188 145.908
+0.18750 145.909
+0.20312 145.913
+0.21875 145.942
+0.23438 145.907
+0.25000 145.926
+0.28125 145.946
+0.31250 145.984
+0.34375 145.970
+0.37500 145.933
+0.40625 146.028
+0.43750 146.024
+0.46875 145.954
+0.50000 145.966
+0.56250 145.986
+0.62500 145.991
+0.68750 146.057
+0.75000 146.065
+0.81250 146.092
+0.87500 146.122
+0.93750 146.155
+1.00000 146.137
+1.12500 147.658
+1.25000 148.845
+1.37500 149.832
+1.50000 150.604
+1.62500 150.621
+1.75000 150.623
+1.87500 150.633
+2.00000 150.654
+2.25000 150.580
+2.50000 150.635
+2.75000 150.634
+3.00000 150.644
+3.25000 150.617
+3.50000 150.632
+3.75000 150.593
+4.00000 150.616
+4.50000 150.610
+5.00000 150.626
+5.50000 150.615
+6.00000 150.631
+6.50000 150.616
+7.00000 150.643
+7.50000 150.678
+8.00000 150.591
+9.00000 150.623
+10.00000 150.588
+11.00000 150.198
+12.00000 149.858
+13.00000 149.562
+14.00000 149.323
+15.00000 149.110
+16.00000 148.921
+18.00000 148.595
+20.00000 148.337
+22.00000 148.107
+24.00000 147.928
+26.00000 147.804
+28.00000 147.657
+30.00000 147.590
+32.00000 147.470
+36.00000 147.344
+40.00000 147.189
+44.00000 147.128
+48.00000 147.006
+52.00000 146.927
+56.00000 146.922
+60.00000 146.826
+64.00000 146.763
+72.00000 146.691
+80.00000 146.637
+88.00000 146.559
+96.00000 146.543
+104.00000 146.536
+112.00000 146.490
+120.00000 146.454
+128.00000 146.400
+144.00000 146.368
+160.00000 146.316
+176.00000 146.393
+192.00000 146.281
+208.00000 146.262
+224.00000 146.236
+240.00000 146.247
+256.00000 146.406
+288.00000 146.493
+320.00000 146.482
+352.00000 146.410
+384.00000 146.395
+416.00000 146.380
+448.00000 146.332
+480.00000 146.353
+512.00000 146.359
+
+
+Random load latency
+"stride=16
+0.00049 2.042
+0.00098 2.043
+0.00195 2.028
+0.00293 2.028
+0.00391 2.023
+0.00586 2.021
+0.00781 2.021
+0.00977 2.018
+0.01172 2.019
+0.01367 2.017
+0.01562 2.028
+0.01758 2.019
+0.01953 2.029
+0.02148 2.025
+0.02344 2.036
+0.02539 2.024
+0.02734 2.042
+0.02930 2.020
+0.03125 73.081
+0.03516 96.888
+0.03906 87.879
+0.04297 109.630
+0.04688 101.157
+0.05078 116.454
+0.05469 147.089
+0.05859 149.334
+0.06250 150.493
+0.07031 150.511
+0.07812 150.515
+0.08594 150.577
+0.09375 150.493
+0.10156 150.524
+0.10938 150.506
+0.11719 150.583
+0.12500 150.536
+0.14062 150.494
+0.15625 152.952
+0.17188 150.484
+0.18750 150.429
+0.20312 152.613
+0.21875 151.664
+0.23438 152.751
+0.25000 151.767
+0.28125 153.651
+0.31250 153.980
+0.34375 153.411
+0.37500 156.238
+0.40625 154.952
+0.43750 157.934
+0.46875 158.879
+0.50000 158.615
+0.56250 161.406
+0.62500 161.125
+0.68750 161.225
+0.75000 162.213
+0.81250 164.826
+0.87500 164.917
+0.93750 164.225
+1.00000 164.371
+1.12500 166.344
+1.25000 167.381
+1.37500 167.580
+1.50000 168.121
+1.62500 167.801
+1.75000 169.047
+1.87500 169.006
+2.00000 169.045
+2.25000 168.965
+2.50000 169.785
+2.75000 170.092
+3.00000 169.994
+3.25000 169.907
+3.50000 170.244
+3.75000 169.833
+4.00000 170.418
+4.50000 170.155
+5.00000 170.087
+5.50000 170.143
+6.00000 170.100
+6.50000 170.066
+7.00000 170.172
+7.50000 170.212
+8.00000 170.261
+9.00000 170.197
+10.00000 170.136
+11.00000 170.244
+12.00000 170.257
+13.00000 170.231
+14.00000 170.221
+15.00000 170.193
+16.00000 170.280
+18.00000 170.062
+20.00000 170.287
+22.00000 170.238
+24.00000 170.273
+26.00000 170.292
+28.00000 170.280
+30.00000 170.347
+32.00000 170.127
+36.00000 170.221
+40.00000 170.291
+44.00000 170.270
+48.00000 170.198
+52.00000 170.288
+56.00000 170.281
+60.00000 170.254
+64.00000 170.251
+72.00000 170.283
+80.00000 170.362
+88.00000 170.238
+96.00000 170.261
+104.00000 170.370
+112.00000 170.259
+120.00000 170.322
+128.00000 170.469
+144.00000 170.356
+160.00000 170.352
+176.00000 170.269
+192.00000 170.394
+208.00000 170.330
+224.00000 170.284
+240.00000 170.256
+256.00000 170.331
+288.00000 170.344
+320.00000 170.318
+352.00000 170.304
+384.00000 170.316
+416.00000 170.294
+448.00000 170.302
+480.00000 170.324
+512.00000 170.331
+
+
+
+[Sun Apr 30 02:44:22 AM CST 2023]
+[openeuler@openeuler-riscv64 lmbench]$ 

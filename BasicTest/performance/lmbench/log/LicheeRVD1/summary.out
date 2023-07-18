@@ -1,0 +1,75 @@
+
+                 L M B E N C H  3 . 0   S U M M A R Y
+                 ------------------------------------
+		 (Alpha software, do not distribute)
+
+Basic system parameters
+------------------------------------------------------------------------------
+Host                 OS Description              Mhz  tlb  cache  mem   scal
+                                                     pages line   par   load
+                                                           bytes  
+--------- ------------- ----------------------- ---- ----- ----- ------ ----
+openeuler Linux 6.1.0-0       riscv64-linux-gnu  998    10    64 5.8200    1
+
+Processor, Processes - times in microseconds - smaller is better
+------------------------------------------------------------------------------
+Host                 OS  Mhz null null      open slct sig  sig  fork exec sh  
+                             call  I/O stat clos TCP  inst hndl proc proc proc
+--------- ------------- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+openeuler Linux 6.1.0-0  998 0.39 0.97 14.8 34.8 33.4 2.00 14.0 6665 33.K 48.K
+
+Basic integer operations - times in nanoseconds - smaller is better
+-------------------------------------------------------------------
+Host                 OS  intgr intgr  intgr  intgr  intgr  
+                          bit   add    mul    div    mod   
+--------- ------------- ------ ------ ------ ------ ------ 
+openeuler Linux 6.1.0-0 1.0100 0.0200 3.2400   12.0 3.9800
+
+Basic float operations - times in nanoseconds - smaller is better
+-----------------------------------------------------------------
+Host                 OS  float  float  float  float
+                         add    mul    div    bogo
+--------- ------------- ------ ------ ------ ------ 
+openeuler Linux 6.1.0-0 3.9600 3.9700   18.9   27.0
+
+Basic double operations - times in nanoseconds - smaller is better
+------------------------------------------------------------------
+Host                 OS  double double double double
+                         add    mul    div    bogo
+--------- ------------- ------  ------ ------ ------ 
+openeuler Linux 6.1.0-0 4.9600 5.0000   33.9   44.0
+
+Context switching - times in microseconds - smaller is better
+-------------------------------------------------------------------------
+Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K
+                         ctxsw  ctxsw  ctxsw ctxsw  ctxsw   ctxsw   ctxsw
+--------- ------------- ------ ------ ------ ------ ------ ------- -------
+openeuler Linux 6.1.0-0   12.1   27.8   23.3   30.2   26.5    29.8    26.6
+
+*Local* Communication latencies in microseconds - smaller is better
+---------------------------------------------------------------------
+Host                 OS 2p/0K  Pipe AF     UDP  RPC/   TCP  RPC/ TCP
+                        ctxsw       UNIX         UDP         TCP conn
+--------- ------------- ----- ----- ---- ----- ----- ----- ----- ----
+openeuler Linux 6.1.0-0  12.1  36.6 89.8 175.3       263.6       926.
+
+File & VM system latencies in microseconds - smaller is better
+-------------------------------------------------------------------------------
+Host                 OS   0K File      10K File     Mmap    Prot   Page   100fd
+                        Create Delete Create Delete Latency Fault  Fault  selct
+--------- ------------- ------ ------ ------ ------ ------- ----- ------- -----
+openeuler Linux 6.1.0-0  274.2  239.7  596.3  331.6  103.0K 0.415 8.42310  12.4
+
+*Local* Communication bandwidths in MB/s - bigger is better
+-----------------------------------------------------------------------------
+Host                OS  Pipe AF    TCP  File   Mmap  Bcopy  Bcopy  Mem   Mem
+                             UNIX      reread reread (libc) (hand) read write
+--------- ------------- ---- ---- ---- ------ ------ ------ ------ ---- -----
+openeuler Linux 6.1.0-0 191. 186. 184.  461.5 2064.6 1287.4 1282.4 1196 1093.
+
+Memory latencies in nanoseconds - smaller is better
+    (WARNING - may not be correct, check graphs)
+------------------------------------------------------------------------------
+Host                 OS   Mhz   L1 $   L2 $    Main mem    Rand mem    Guesses
+--------- -------------   ---   ----   ----    --------    --------    -------
+openeuler Linux 6.1.0-0   998 2.0430   25.6   26.3       171.0    No L2 cache?

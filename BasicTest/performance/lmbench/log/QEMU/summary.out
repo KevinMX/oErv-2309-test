@@ -1,0 +1,40 @@
+
+                 L M B E N C H  3 . 0   S U M M A R Y
+                 ------------------------------------
+		 (Alpha software, do not distribute)
+
+
+Context switching - times in microseconds - smaller is better
+-------------------------------------------------------------------------
+Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K
+                         ctxsw  ctxsw  ctxsw ctxsw  ctxsw   ctxsw   ctxsw
+--------- ------------- ------ ------ ------ ------ ------ ------- -------
+openeuler Linux 6.1.19-   59.9   62.0   61.2   74.4   75.5    80.9    86.1
+
+*Local* Communication latencies in microseconds - smaller is better
+---------------------------------------------------------------------
+Host                 OS 2p/0K  Pipe AF     UDP  RPC/   TCP  RPC/ TCP
+                        ctxsw       UNIX         UDP         TCP conn
+--------- ------------- ----- ----- ---- ----- ----- ----- ----- ----
+openeuler Linux 6.1.19-  59.9            316.2       294.6       394.
+
+File & VM system latencies in microseconds - smaller is better
+-------------------------------------------------------------------------------
+Host                 OS   0K File      10K File     Mmap    Prot   Page   100fd
+                        Create Delete Create Delete Latency Fault  Fault  selct
+--------- ------------- ------ ------ ------ ------ ------- ----- ------- -----
+openeuler Linux 6.1.19-  208.0  159.6  559.0  231.7  875.3K                    
+
+*Local* Communication bandwidths in MB/s - bigger is better
+-----------------------------------------------------------------------------
+Host                OS  Pipe AF    TCP  File   Mmap  Bcopy  Bcopy  Mem   Mem
+                             UNIX      reread reread (libc) (hand) read write
+--------- ------------- ---- ---- ---- ------ ------ ------ ------ ---- -----
+openeuler Linux 6.1.19- 105. 178. 297.  381.5 6047.5 3239.4 2048.8 2978 3063.
+
+Memory latencies in nanoseconds - smaller is better
+    (WARNING - may not be correct, check graphs)
+------------------------------------------------------------------------------
+Host                 OS   Mhz   L1 $   L2 $    Main mem    Rand mem    Guesses
+--------- -------------   ---   ----   ----    --------    --------    -------
+openeuler Linux 6.1.19-  8988 2.6290 3.5840   26.1       139.1

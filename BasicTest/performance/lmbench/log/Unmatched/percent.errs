@@ -1,0 +1,32 @@
+Useless use of split in void context at ../scripts/getpercent line 23.
+Useless use of split in void context at ../scripts/getpercent line 27.
+Useless use of split in void context at ../scripts/getpercent line 31.
+Useless use of split in void context at ../scripts/getpercent line 35.
+Useless use of split in void context at ../scripts/getpercent line 39.
+Useless use of split in void context at ../scripts/getpercent line 43.
+Useless use of split in void context at ../scripts/getpercent line 47.
+Useless use of split in void context at ../scripts/getpercent line 51.
+Useless use of split in void context at ../scripts/getpercent line 55.
+Useless use of split in void context at ../scripts/getpercent line 59.
+Useless use of split in void context at ../scripts/getpercent line 63.
+Useless use of split in void context at ../scripts/getpercent line 69.
+Useless use of split in void context at ../scripts/getpercent line 75.
+Useless use of split in void context at ../scripts/getpercent line 81.
+Useless use of split in void context at ../scripts/getpercent line 85.
+Useless use of split in void context at ../scripts/getpercent line 89.
+Useless use of split in void context at ../scripts/getpercent line 125.
+Useless use of split in void context at ../scripts/getpercent line 128.
+Useless use of split in void context at ../scripts/getpercent line 131.
+Useless use of split in void context at ../scripts/getpercent line 148.
+Name "main::files" used only once: possible typo at ../scripts/getpercent line 14.
+Name "main::lat_tlb" used only once: possible typo at ../scripts/getpercent line 157.
+Name "main::tbl" used only once: possible typo at ../scripts/getpercent line 145.
+Name "main::bw_file" used only once: possible typo at ../scripts/getpercent line 91.
+Use of uninitialized value $_[4] in division (/) at ../scripts/getpercent line 90, <FD> line 152.
+No data for misc_mhz in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_nullsys in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_rpc_udp_local in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_rpc_tcp_local in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_ctx in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_ctx8 in riscv64-linux-gnu-openeuler-riscv64
+No data for lat_tlb in riscv64-linux-gnu-openeuler-riscv64

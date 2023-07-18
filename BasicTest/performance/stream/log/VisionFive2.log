@@ -1,0 +1,85 @@
+[openeuler@openeuler-riscv64 ~]$ git clone https://gitee.com/thesamename/STREAM.git                                                                                                                                                 [17/17]cd STREAM                                                                                                                                                                                                                                  
+sudo dnf install -y gcc gfortran
+sed -i "s/CC =.*/CC = gcc/" Makefile                                                                                                                                                                                                       
+sed -i "s/FC =.*/FC = gfortran/" Makefile
+make                                                                                                                                                                                                                                       
+./stream_c.exe
+Cloning into 'STREAM'...
+remote: Enumerating objects: 57, done.                                                                                                                                                                                                     remote: Total 57 (delta 0), reused 0 (delta 0), pack-reused 57
+Receiving objects: 100% (57/57), 22.81 KiB | 2.07 MiB/s, done.
+Resolving deltas: 100% (29/29), done.
+[sudo] password for openeuler: 
+Last metadata expiration check: 3:02:43 ago on Mon 01 May 2023 01:30:13 PM CST.
+Package gcc-10.3.1-27.oe2303.riscv64 is already installed.                                                                                                                                                                                 
+Dependencies resolved.                                                                                                                                                                                                                     
+=========================================================================================================================================================================================================================================== Package                                                   Architecture                                         Version                                                        Repository                                             Size 
+===========================================================================================================================================================================================================================================
+Installing:                 
+ gcc-gfortran                                              riscv64                                              10.3.1-27.oe2303                                               mainline                                              8.1 M
+Installing dependencies:   
+ libgfortran                                               riscv64                                              10.3.1-27.oe2303                                               mainline                                              368 k
+                                                                                                                                                                                                                                           
+Transaction Summary                                                                                                                                                                                                                        
+===========================================================================================================================================================================================================================================Install  2 Packages                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                           
+Total download size: 8.5 M                                                                                                                                                                                                                 
+Installed size: 22 M
+Downloading Packages:
+(1/2): libgfortran-10.3.1-27.oe2303.riscv64.rpm                                                                                                                                                            156 kB/s | 368 kB     00:02    
+(2/2): gcc-gfortran-10.3.1-27.oe2303.riscv64.rpm                                                                                                                                                           1.8 MB/s | 8.1 MB     00:04    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Total                                                                                                                                                                                                      1.9 MB/s | 8.5 MB     00:04     
+Running transaction check     
+Transaction check succeeded.     
+Running transaction test                                 
+Transaction test succeeded.              
+Running transaction                                                                                                  
+  Preparing        :                                                                                                                                                                                                                   1/1 
+  Installing       : libgfortran-10.3.1-27.oe2303.riscv64                                                                                                                                                                              1/2 
+  Installing       : gcc-gfortran-10.3.1-27.oe2303.riscv64                                                                                                                                                                             2/2 
+  Running scriptlet: gcc-gfortran-10.3.1-27.oe2303.riscv64                                                                                                                                                                             2/2 
+  Verifying        : gcc-gfortran-10.3.1-27.oe2303.riscv64                                                                                                                                                                             1/2 
+  Verifying        : libgfortran-10.3.1-27.oe2303.riscv64                                                                                                                                                                              2/2 
+                                                          
+Installed:                            
+  gcc-gfortran-10.3.1-27.oe2303.riscv64                                                                                libgfortran-10.3.1-27.oe2303.riscv64                                                                               
+                                                          
+Complete!                                                                                                            
+gcc -O2 -fopenmp   -c -o mysecond.o mysecond.c
+gcc -O2 -fopenmp -c mysecond.c
+gfortran -O2 -fopenmp -c stream.f                                                                                    
+gfortran -O2 -fopenmp stream.o mysecond.o -o stream_f.exe                                                            
+gcc -O2 -fopenmp stream.c -o stream_c.exe                                                                            
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $                  
+-------------------------------------------------------------
+This system uses 8 bytes per array element.                                                                          
+-------------------------------------------------------------
+Array size = 10000000 (elements), Offset = 0 (elements)
+Memory per array = 76.3 MiB (= 0.1 GiB).
+Total memory required = 228.9 MiB (= 0.2 GiB).                                                                       
+Each kernel will be executed 10 times.                                                                               
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.                                                                     
+------------------------------------------------------------- 
+Number of Threads requested = 4                                                                                      
+Number of Threads counted = 4                                                                                        
+-------------------------------------------------------------           
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 52252 microseconds.
+   (= 52252 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:            3030.9     0.054157     0.052790     0.055478
+Scale:           2688.5     0.061853     0.059512     0.064454
+Add:             3916.2     0.062918     0.061284     0.066893
+Triad:           3848.1     0.065003     0.062369     0.069761
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+[openeuler@openeuler-riscv64 STREAM]$ 

@@ -1,0 +1,6 @@
+riscv64-linux-gnu: no data for Memory load parallelism
+riscv64-linux-gnu: lat_mem_rand = 247.959
+riscv64-linux-gnu: no data for Memory load parallelism
+riscv64-linux-gnu: lat_mem_rand = 116.225
+Argument "" isn't numeric in numeric gt (>) at ../scripts/getsummary line 944, <FD> line 3805.
+Argument "" isn't numeric in numeric gt (>) at ../scripts/getsummary line 944, <FD> line 3805.
