@@ -4,6 +4,7 @@
 
 ## 基础测试
 
+```
 ── 编译器测试
 │   ├── AnghaBench
 │   │   ├── AnghaBench.log.gz
@@ -256,3 +257,4 @@
         └── x86_64
             ├── dmesg.log.zst
             └── trinity.log.zst
+```
