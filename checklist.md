@@ -1,6 +1,6 @@
 # openEuler 23.03 RISC-V 测试报告审查表
 
-打勾以表示通过 sig-QA 审查，并在后面注明通过时间。
+打勾以表示通过 sig-QA 审查，并在后面注明通过时间和相关说明。
 
 ## 基础测试
 
@@ -18,7 +18,8 @@
   - [] stream
   - [] unixbench
 - [] 内核测试
-  - [] LTP
   - [] trinity
 - [] 长稳测试
   - [] LTPstress
+- [] 功能测试
+  - [] LTP
