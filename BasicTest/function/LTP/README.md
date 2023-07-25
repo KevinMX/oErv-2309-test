@@ -4,6 +4,7 @@ LTP 是由 SGI, OSDL 和 Bull 联合开发的项目，并由 IBM, Cisco, Fujitsu
 
 ## 文件树
 
+```
 LTP
 ├── log
 │   ├── 6.1.19-sv39 #开启 sv39 后进行的测试结果与日志
@@ -37,3 +38,4 @@ LTP
 ├── method.md   #测试方法
 ├── README.md   #测试说明
 └── result.md   #测试结果
+``

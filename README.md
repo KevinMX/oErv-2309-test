@@ -11,10 +11,10 @@
 ## 功能测试
 
 - [mugen BaseOS](https://gitee.com/yunxiangluo/openeuler-riscv-2303-test/tree/master/23.09/mugen)
-- [LTP](/BasicTest/function/LTP/)
 
 ## 内核测试
 
+- [LTP](/BasicTest/function/LTP/)
 - [trinity](/BasicTest/kernel/trinity/)
 
 ## 性能测试
