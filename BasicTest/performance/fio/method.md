@@ -23,4 +23,6 @@ done
 EOF
 ```
 
-3. 运行 `fio.sh`：`bash fio.sh`。
+3. 运行 `fio.sh`：`bash fio.sh | tee fio.log`。
+
+4. 生成测试结果表格： `python src/processor.py fio.log`
