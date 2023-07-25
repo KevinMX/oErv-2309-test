@@ -72,7 +72,3 @@ openeuler Linux 6.1.19-  8988 2.6290 3.5840   26.1       139.1
 ![percent](./log/images/percent-diff.png)
 
 ![summary](./log/images/summary-diff.png)
-
-## 测试结论
-
-考虑到 qemu-system-riscv64 的执行效率，系统总体性能表现良好，符合预期。

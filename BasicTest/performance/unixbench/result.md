@@ -61,7 +61,3 @@ System Call Overhead                          15000.0     791249.9    527.5
                                                                    ========
 System Benchmarks Index Score                                         230.4
 ```
-
-## 测试结论
-
-系统性能表现良好，符合预期。
